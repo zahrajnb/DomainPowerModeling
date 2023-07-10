@@ -1,0 +1,3 @@
+repository='https://github.com/accellera-official/systemc.git'
+module=''
+tag='origin'

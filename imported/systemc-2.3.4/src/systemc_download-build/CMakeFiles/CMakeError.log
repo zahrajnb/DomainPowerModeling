@@ -1,0 +1,189 @@
+Determining if the __sparc exist failed with the following output:
+Change Dir: /home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/ninja cmTC_83d78 && [1/2] Building C object CMakeFiles/cmTC_83d78.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_83d78.dir/CheckSymbolExists.c.o 
+/usr/bin/cc    -o CMakeFiles/cmTC_83d78.dir/CheckSymbolExists.c.o -c /home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: error: ‘__sparc’ undeclared (first use in this function)
+    7 |   return ((int*)(&__sparc))[argc];
+      |                   ^~~~~~~
+/home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: note: each undeclared identifier is reported only once for each function it appears in
+ninja: build stopped: subcommand failed.
+
+
+File /home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef __sparc
+  return ((int*)(&__sparc))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the __sparc__ exist failed with the following output:
+Change Dir: /home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/ninja cmTC_86c77 && [1/2] Building C object CMakeFiles/cmTC_86c77.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_86c77.dir/CheckSymbolExists.c.o 
+/usr/bin/cc    -o CMakeFiles/cmTC_86c77.dir/CheckSymbolExists.c.o -c /home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: error: ‘__sparc__’ undeclared (first use in this function)
+    7 |   return ((int*)(&__sparc__))[argc];
+      |                   ^~~~~~~~~
+/home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: note: each undeclared identifier is reported only once for each function it appears in
+ninja: build stopped: subcommand failed.
+
+
+File /home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef __sparc__
+  return ((int*)(&__sparc__))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the __hppa exist failed with the following output:
+Change Dir: /home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/ninja cmTC_8fb8d && [1/2] Building C object CMakeFiles/cmTC_8fb8d.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_8fb8d.dir/CheckSymbolExists.c.o 
+/usr/bin/cc    -o CMakeFiles/cmTC_8fb8d.dir/CheckSymbolExists.c.o -c /home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: error: ‘__hppa’ undeclared (first use in this function)
+    7 |   return ((int*)(&__hppa))[argc];
+      |                   ^~~~~~
+/home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: note: each undeclared identifier is reported only once for each function it appears in
+ninja: build stopped: subcommand failed.
+
+
+File /home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef __hppa
+  return ((int*)(&__hppa))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the __i386 exist failed with the following output:
+Change Dir: /home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/ninja cmTC_6eac9 && [1/2] Building C object CMakeFiles/cmTC_6eac9.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_6eac9.dir/CheckSymbolExists.c.o 
+/usr/bin/cc    -o CMakeFiles/cmTC_6eac9.dir/CheckSymbolExists.c.o -c /home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: error: ‘__i386’ undeclared (first use in this function)
+    7 |   return ((int*)(&__i386))[argc];
+      |                   ^~~~~~
+/home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: note: each undeclared identifier is reported only once for each function it appears in
+ninja: build stopped: subcommand failed.
+
+
+File /home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef __i386
+  return ((int*)(&__i386))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the __aarch64__ exist failed with the following output:
+Change Dir: /home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/ninja cmTC_769d7 && [1/2] Building C object CMakeFiles/cmTC_769d7.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_769d7.dir/CheckSymbolExists.c.o 
+/usr/bin/cc    -o CMakeFiles/cmTC_769d7.dir/CheckSymbolExists.c.o -c /home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: error: ‘__aarch64__’ undeclared (first use in this function)
+    7 |   return ((int*)(&__aarch64__))[argc];
+      |                   ^~~~~~~~~~~
+/home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: note: each undeclared identifier is reported only once for each function it appears in
+ninja: build stopped: subcommand failed.
+
+
+File /home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef __aarch64__
+  return ((int*)(&__aarch64__))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the __ppc__ exist failed with the following output:
+Change Dir: /home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/ninja cmTC_ac312 && [1/2] Building C object CMakeFiles/cmTC_ac312.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_ac312.dir/CheckSymbolExists.c.o 
+/usr/bin/cc    -o CMakeFiles/cmTC_ac312.dir/CheckSymbolExists.c.o -c /home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: error: ‘__ppc__’ undeclared (first use in this function)
+    7 |   return ((int*)(&__ppc__))[argc];
+      |                   ^~~~~~~
+/home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: note: each undeclared identifier is reported only once for each function it appears in
+ninja: build stopped: subcommand failed.
+
+
+File /home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef __ppc__
+  return ((int*)(&__ppc__))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the __powerpc exist failed with the following output:
+Change Dir: /home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/bin/ninja cmTC_8b222 && [1/2] Building C object CMakeFiles/cmTC_8b222.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_8b222.dir/CheckSymbolExists.c.o 
+/usr/bin/cc    -o CMakeFiles/cmTC_8b222.dir/CheckSymbolExists.c.o -c /home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: error: ‘__powerpc’ undeclared (first use in this function)
+    7 |   return ((int*)(&__powerpc))[argc];
+      |                   ^~~~~~~~~
+/home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:7:19: note: each undeclared identifier is reported only once for each function it appears in
+ninja: build stopped: subcommand failed.
+
+
+File /home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4/src/systemc_download-build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef __powerpc
+  return ((int*)(&__powerpc))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}

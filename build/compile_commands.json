@@ -1,0 +1,42 @@
+[
+{
+  "directory": "/home/zama/thesis_project/DomainPowerModeling/build",
+  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_SHARED_LIB -I/home/zama/thesis_project/DomainPowerModeling/inc -isystem /home/zama/thesis_project/DomainPowerModeling/imported/systemc-2.3.4/include -isystem /home/zama/thesis_project/DomainPowerModeling/imported/spdlog-1.11.0/include -std=gnu++11 -o CMakeFiles/DomainPowerModeling.dir/src/DummyInterconnect.cpp.o -c /home/zama/thesis_project/DomainPowerModeling/src/DummyInterconnect.cpp",
+  "file": "/home/zama/thesis_project/DomainPowerModeling/src/DummyInterconnect.cpp"
+},
+{
+  "directory": "/home/zama/thesis_project/DomainPowerModeling/build",
+  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_SHARED_LIB -I/home/zama/thesis_project/DomainPowerModeling/inc -isystem /home/zama/thesis_project/DomainPowerModeling/imported/systemc-2.3.4/include -isystem /home/zama/thesis_project/DomainPowerModeling/imported/spdlog-1.11.0/include -std=gnu++11 -o CMakeFiles/DomainPowerModeling.dir/src/DummyMaster.cpp.o -c /home/zama/thesis_project/DomainPowerModeling/src/DummyMaster.cpp",
+  "file": "/home/zama/thesis_project/DomainPowerModeling/src/DummyMaster.cpp"
+},
+{
+  "directory": "/home/zama/thesis_project/DomainPowerModeling/build",
+  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_SHARED_LIB -I/home/zama/thesis_project/DomainPowerModeling/inc -isystem /home/zama/thesis_project/DomainPowerModeling/imported/systemc-2.3.4/include -isystem /home/zama/thesis_project/DomainPowerModeling/imported/spdlog-1.11.0/include -std=gnu++11 -o CMakeFiles/DomainPowerModeling.dir/src/Memory.cpp.o -c /home/zama/thesis_project/DomainPowerModeling/src/Memory.cpp",
+  "file": "/home/zama/thesis_project/DomainPowerModeling/src/Memory.cpp"
+},
+{
+  "directory": "/home/zama/thesis_project/DomainPowerModeling/build",
+  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_SHARED_LIB -I/home/zama/thesis_project/DomainPowerModeling/inc -isystem /home/zama/thesis_project/DomainPowerModeling/imported/systemc-2.3.4/include -isystem /home/zama/thesis_project/DomainPowerModeling/imported/spdlog-1.11.0/include -std=gnu++11 -o CMakeFiles/DomainPowerModeling.dir/src/PowerDomain1.cpp.o -c /home/zama/thesis_project/DomainPowerModeling/src/PowerDomain1.cpp",
+  "file": "/home/zama/thesis_project/DomainPowerModeling/src/PowerDomain1.cpp"
+},
+{
+  "directory": "/home/zama/thesis_project/DomainPowerModeling/build",
+  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_SHARED_LIB -I/home/zama/thesis_project/DomainPowerModeling/inc -isystem /home/zama/thesis_project/DomainPowerModeling/imported/systemc-2.3.4/include -isystem /home/zama/thesis_project/DomainPowerModeling/imported/spdlog-1.11.0/include -std=gnu++11 -o CMakeFiles/DomainPowerModeling.dir/src/PowerDomain2.cpp.o -c /home/zama/thesis_project/DomainPowerModeling/src/PowerDomain2.cpp",
+  "file": "/home/zama/thesis_project/DomainPowerModeling/src/PowerDomain2.cpp"
+},
+{
+  "directory": "/home/zama/thesis_project/DomainPowerModeling/build",
+  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_SHARED_LIB -I/home/zama/thesis_project/DomainPowerModeling/inc -isystem /home/zama/thesis_project/DomainPowerModeling/imported/systemc-2.3.4/include -isystem /home/zama/thesis_project/DomainPowerModeling/imported/spdlog-1.11.0/include -std=gnu++11 -o CMakeFiles/DomainPowerModeling.dir/src/dut_top.cpp.o -c /home/zama/thesis_project/DomainPowerModeling/src/dut_top.cpp",
+  "file": "/home/zama/thesis_project/DomainPowerModeling/src/dut_top.cpp"
+},
+{
+  "directory": "/home/zama/thesis_project/DomainPowerModeling/build",
+  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_SHARED_LIB -I/home/zama/thesis_project/DomainPowerModeling/inc -isystem /home/zama/thesis_project/DomainPowerModeling/imported/systemc-2.3.4/include -isystem /home/zama/thesis_project/DomainPowerModeling/imported/spdlog-1.11.0/include -std=gnu++11 -o CMakeFiles/DomainPowerModeling.dir/src/power_domain_logger.cpp.o -c /home/zama/thesis_project/DomainPowerModeling/src/power_domain_logger.cpp",
+  "file": "/home/zama/thesis_project/DomainPowerModeling/src/power_domain_logger.cpp"
+},
+{
+  "directory": "/home/zama/thesis_project/DomainPowerModeling/build",
+  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_SHARED_LIB -I/home/zama/thesis_project/DomainPowerModeling/inc -isystem /home/zama/thesis_project/DomainPowerModeling/imported/systemc-2.3.4/include -isystem /home/zama/thesis_project/DomainPowerModeling/imported/spdlog-1.11.0/include -std=gnu++11 -o CMakeFiles/DomainPowerModeling.dir/src/simulator.cpp.o -c /home/zama/thesis_project/DomainPowerModeling/src/simulator.cpp",
+  "file": "/home/zama/thesis_project/DomainPowerModeling/src/simulator.cpp"
+}
+]

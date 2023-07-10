@@ -1,0 +1,3 @@
+/home/zama/thesis_project/DomainPowerModeling/build/CMakeFiles/DomainPowerModeling.dir
+/home/zama/thesis_project/DomainPowerModeling/build/CMakeFiles/edit_cache.dir
+/home/zama/thesis_project/DomainPowerModeling/build/CMakeFiles/rebuild_cache.dir
