@@ -88,6 +88,7 @@ if (NOT SystemCLanguage_FOUND)
    set(SYSTEMC_LIBRARY_DIR ${SYSTEMC_INSTALL_DIR}/lib)
    # Specify the include directories and link directories
    include_directories(
+     ${FUSED_PS_INCLUDE_DIR}
      ${SYSTEMC_INCLUDE_DIR}
      ${SPDLOG_INCLUDE_DIR}
      ${CMAKE_CURRENT_LIST_DIR}/inc
