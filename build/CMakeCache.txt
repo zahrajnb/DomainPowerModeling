@@ -236,14 +236,38 @@ DomainPowerModeling_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 DomainPowerModeling_SOURCE_DIR:STATIC=/home/zama/thesis_project/DomainPowerModeling
 
+//Build tests
+ENABLE_TESTS:BOOL=ON
+
+//Installation directory for dependencies
+EP_INSTALL_DIR:STRING=/home/zama/.local
+
+//Download, build & install other dependencies only
+INSTALL_DEPENDENCIES:BOOL=OFF
+
 //Build Doxygen document
 INSTALL_DEPS:BOOL=OFF
+
+//Download, build & install SystemC
+INSTALL_SYSTEMC:BOOL=OFF
+
+//Download, build & install SystemC-AMS
+INSTALL_SYSTEMCAMS:BOOL=OFF
 
 //The directory containing a CMake configuration file for SystemCLanguage.
 SystemCLanguage_DIR:PATH=/home/zama/thesis_project/DomainPowerModeling/imported/systemc-2.3.4/lib/cmake/SystemCLanguage
 
+//Value Computed by CMake
+fused-ps_BINARY_DIR:STATIC=/home/zama/thesis_project/DomainPowerModeling/build/imported/Fused_ps
+
+//Value Computed by CMake
+fused-ps_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+fused-ps_SOURCE_DIR:STATIC=/home/zama/thesis_project/DomainPowerModeling/imported/Fused_ps
+
 //The directory containing a CMake configuration file for spdlog.
-spdlog_DIR:PATH=/home/zama/thesis_project/DomainPowerModeling/imported/spdlog-1.11.0/lib/cmake/spdlog
+spdlog_DIR:PATH=spdlog_DIR-NOTFOUND
 
 
 ########################
@@ -354,7 +378,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

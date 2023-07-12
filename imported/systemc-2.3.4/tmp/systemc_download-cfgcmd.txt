@@ -1,1 +1,0 @@
-cmd='/usr/bin/cmake;-DCMAKE_INSTALL_PREFIX=/home/lopeztel/nordic/DomainPowerModeling/imported/systemc-2.3.4;-DCMAKE_CXX_STANDARD=11;-DDISABLE_COPYRIGHT_MESSAGE=ON;-GNinja;<SOURCE_DIR><SOURCE_SUBDIR>'
