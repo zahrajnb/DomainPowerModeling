@@ -1,3 +1,8 @@
-/home/zama/thesis_project/DomainPowerModeling/build/CMakeFiles/DomainPowerModeling.dir
-/home/zama/thesis_project/DomainPowerModeling/build/CMakeFiles/edit_cache.dir
-/home/zama/thesis_project/DomainPowerModeling/build/CMakeFiles/rebuild_cache.dir
+/home/zama/thesis_project/smth/build/CMakeFiles/DomainPowerModeling.dir
+/home/zama/thesis_project/smth/build/CMakeFiles/edit_cache.dir
+/home/zama/thesis_project/smth/build/CMakeFiles/rebuild_cache.dir
+/home/zama/thesis_project/smth/build/imported/Fused_ps/CMakeFiles/ep_systemc.dir
+/home/zama/thesis_project/smth/build/imported/Fused_ps/CMakeFiles/ep_spdlog.dir
+/home/zama/thesis_project/smth/build/imported/Fused_ps/CMakeFiles/ep_yaml_cpp.dir
+/home/zama/thesis_project/smth/build/imported/Fused_ps/CMakeFiles/edit_cache.dir
+/home/zama/thesis_project/smth/build/imported/Fused_ps/CMakeFiles/rebuild_cache.dir

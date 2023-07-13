@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/zama/thesis_project/DomainPowerModeling
+CMAKE_SOURCE_DIR = /home/zama/thesis_project/smth
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/zama/thesis_project/DomainPowerModeling/build
+CMAKE_BINARY_DIR = /home/zama/thesis_project/smth/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/DomainPowerModeling.dir/depend.make
@@ -72,114 +72,114 @@ include CMakeFiles/DomainPowerModeling.dir/flags.make
 CMakeFiles/DomainPowerModeling.dir/src/DummyInterconnect.cpp.o: CMakeFiles/DomainPowerModeling.dir/flags.make
 CMakeFiles/DomainPowerModeling.dir/src/DummyInterconnect.cpp.o: ../src/DummyInterconnect.cpp
 CMakeFiles/DomainPowerModeling.dir/src/DummyInterconnect.cpp.o: CMakeFiles/DomainPowerModeling.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zama/thesis_project/DomainPowerModeling/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DomainPowerModeling.dir/src/DummyInterconnect.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DomainPowerModeling.dir/src/DummyInterconnect.cpp.o -MF CMakeFiles/DomainPowerModeling.dir/src/DummyInterconnect.cpp.o.d -o CMakeFiles/DomainPowerModeling.dir/src/DummyInterconnect.cpp.o -c /home/zama/thesis_project/DomainPowerModeling/src/DummyInterconnect.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zama/thesis_project/smth/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DomainPowerModeling.dir/src/DummyInterconnect.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DomainPowerModeling.dir/src/DummyInterconnect.cpp.o -MF CMakeFiles/DomainPowerModeling.dir/src/DummyInterconnect.cpp.o.d -o CMakeFiles/DomainPowerModeling.dir/src/DummyInterconnect.cpp.o -c /home/zama/thesis_project/smth/src/DummyInterconnect.cpp
 
 CMakeFiles/DomainPowerModeling.dir/src/DummyInterconnect.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DomainPowerModeling.dir/src/DummyInterconnect.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zama/thesis_project/DomainPowerModeling/src/DummyInterconnect.cpp > CMakeFiles/DomainPowerModeling.dir/src/DummyInterconnect.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zama/thesis_project/smth/src/DummyInterconnect.cpp > CMakeFiles/DomainPowerModeling.dir/src/DummyInterconnect.cpp.i
 
 CMakeFiles/DomainPowerModeling.dir/src/DummyInterconnect.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DomainPowerModeling.dir/src/DummyInterconnect.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zama/thesis_project/DomainPowerModeling/src/DummyInterconnect.cpp -o CMakeFiles/DomainPowerModeling.dir/src/DummyInterconnect.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zama/thesis_project/smth/src/DummyInterconnect.cpp -o CMakeFiles/DomainPowerModeling.dir/src/DummyInterconnect.cpp.s
 
 CMakeFiles/DomainPowerModeling.dir/src/DummyMaster.cpp.o: CMakeFiles/DomainPowerModeling.dir/flags.make
 CMakeFiles/DomainPowerModeling.dir/src/DummyMaster.cpp.o: ../src/DummyMaster.cpp
 CMakeFiles/DomainPowerModeling.dir/src/DummyMaster.cpp.o: CMakeFiles/DomainPowerModeling.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zama/thesis_project/DomainPowerModeling/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/DomainPowerModeling.dir/src/DummyMaster.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DomainPowerModeling.dir/src/DummyMaster.cpp.o -MF CMakeFiles/DomainPowerModeling.dir/src/DummyMaster.cpp.o.d -o CMakeFiles/DomainPowerModeling.dir/src/DummyMaster.cpp.o -c /home/zama/thesis_project/DomainPowerModeling/src/DummyMaster.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zama/thesis_project/smth/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/DomainPowerModeling.dir/src/DummyMaster.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DomainPowerModeling.dir/src/DummyMaster.cpp.o -MF CMakeFiles/DomainPowerModeling.dir/src/DummyMaster.cpp.o.d -o CMakeFiles/DomainPowerModeling.dir/src/DummyMaster.cpp.o -c /home/zama/thesis_project/smth/src/DummyMaster.cpp
 
 CMakeFiles/DomainPowerModeling.dir/src/DummyMaster.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DomainPowerModeling.dir/src/DummyMaster.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zama/thesis_project/DomainPowerModeling/src/DummyMaster.cpp > CMakeFiles/DomainPowerModeling.dir/src/DummyMaster.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zama/thesis_project/smth/src/DummyMaster.cpp > CMakeFiles/DomainPowerModeling.dir/src/DummyMaster.cpp.i
 
 CMakeFiles/DomainPowerModeling.dir/src/DummyMaster.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DomainPowerModeling.dir/src/DummyMaster.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zama/thesis_project/DomainPowerModeling/src/DummyMaster.cpp -o CMakeFiles/DomainPowerModeling.dir/src/DummyMaster.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zama/thesis_project/smth/src/DummyMaster.cpp -o CMakeFiles/DomainPowerModeling.dir/src/DummyMaster.cpp.s
 
 CMakeFiles/DomainPowerModeling.dir/src/Memory.cpp.o: CMakeFiles/DomainPowerModeling.dir/flags.make
 CMakeFiles/DomainPowerModeling.dir/src/Memory.cpp.o: ../src/Memory.cpp
 CMakeFiles/DomainPowerModeling.dir/src/Memory.cpp.o: CMakeFiles/DomainPowerModeling.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zama/thesis_project/DomainPowerModeling/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/DomainPowerModeling.dir/src/Memory.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DomainPowerModeling.dir/src/Memory.cpp.o -MF CMakeFiles/DomainPowerModeling.dir/src/Memory.cpp.o.d -o CMakeFiles/DomainPowerModeling.dir/src/Memory.cpp.o -c /home/zama/thesis_project/DomainPowerModeling/src/Memory.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zama/thesis_project/smth/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/DomainPowerModeling.dir/src/Memory.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DomainPowerModeling.dir/src/Memory.cpp.o -MF CMakeFiles/DomainPowerModeling.dir/src/Memory.cpp.o.d -o CMakeFiles/DomainPowerModeling.dir/src/Memory.cpp.o -c /home/zama/thesis_project/smth/src/Memory.cpp
 
 CMakeFiles/DomainPowerModeling.dir/src/Memory.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DomainPowerModeling.dir/src/Memory.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zama/thesis_project/DomainPowerModeling/src/Memory.cpp > CMakeFiles/DomainPowerModeling.dir/src/Memory.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zama/thesis_project/smth/src/Memory.cpp > CMakeFiles/DomainPowerModeling.dir/src/Memory.cpp.i
 
 CMakeFiles/DomainPowerModeling.dir/src/Memory.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DomainPowerModeling.dir/src/Memory.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zama/thesis_project/DomainPowerModeling/src/Memory.cpp -o CMakeFiles/DomainPowerModeling.dir/src/Memory.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zama/thesis_project/smth/src/Memory.cpp -o CMakeFiles/DomainPowerModeling.dir/src/Memory.cpp.s
 
 CMakeFiles/DomainPowerModeling.dir/src/PowerDomain1.cpp.o: CMakeFiles/DomainPowerModeling.dir/flags.make
 CMakeFiles/DomainPowerModeling.dir/src/PowerDomain1.cpp.o: ../src/PowerDomain1.cpp
 CMakeFiles/DomainPowerModeling.dir/src/PowerDomain1.cpp.o: CMakeFiles/DomainPowerModeling.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zama/thesis_project/DomainPowerModeling/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/DomainPowerModeling.dir/src/PowerDomain1.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DomainPowerModeling.dir/src/PowerDomain1.cpp.o -MF CMakeFiles/DomainPowerModeling.dir/src/PowerDomain1.cpp.o.d -o CMakeFiles/DomainPowerModeling.dir/src/PowerDomain1.cpp.o -c /home/zama/thesis_project/DomainPowerModeling/src/PowerDomain1.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zama/thesis_project/smth/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/DomainPowerModeling.dir/src/PowerDomain1.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DomainPowerModeling.dir/src/PowerDomain1.cpp.o -MF CMakeFiles/DomainPowerModeling.dir/src/PowerDomain1.cpp.o.d -o CMakeFiles/DomainPowerModeling.dir/src/PowerDomain1.cpp.o -c /home/zama/thesis_project/smth/src/PowerDomain1.cpp
 
 CMakeFiles/DomainPowerModeling.dir/src/PowerDomain1.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DomainPowerModeling.dir/src/PowerDomain1.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zama/thesis_project/DomainPowerModeling/src/PowerDomain1.cpp > CMakeFiles/DomainPowerModeling.dir/src/PowerDomain1.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zama/thesis_project/smth/src/PowerDomain1.cpp > CMakeFiles/DomainPowerModeling.dir/src/PowerDomain1.cpp.i
 
 CMakeFiles/DomainPowerModeling.dir/src/PowerDomain1.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DomainPowerModeling.dir/src/PowerDomain1.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zama/thesis_project/DomainPowerModeling/src/PowerDomain1.cpp -o CMakeFiles/DomainPowerModeling.dir/src/PowerDomain1.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zama/thesis_project/smth/src/PowerDomain1.cpp -o CMakeFiles/DomainPowerModeling.dir/src/PowerDomain1.cpp.s
 
 CMakeFiles/DomainPowerModeling.dir/src/PowerDomain2.cpp.o: CMakeFiles/DomainPowerModeling.dir/flags.make
 CMakeFiles/DomainPowerModeling.dir/src/PowerDomain2.cpp.o: ../src/PowerDomain2.cpp
 CMakeFiles/DomainPowerModeling.dir/src/PowerDomain2.cpp.o: CMakeFiles/DomainPowerModeling.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zama/thesis_project/DomainPowerModeling/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/DomainPowerModeling.dir/src/PowerDomain2.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DomainPowerModeling.dir/src/PowerDomain2.cpp.o -MF CMakeFiles/DomainPowerModeling.dir/src/PowerDomain2.cpp.o.d -o CMakeFiles/DomainPowerModeling.dir/src/PowerDomain2.cpp.o -c /home/zama/thesis_project/DomainPowerModeling/src/PowerDomain2.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zama/thesis_project/smth/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/DomainPowerModeling.dir/src/PowerDomain2.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DomainPowerModeling.dir/src/PowerDomain2.cpp.o -MF CMakeFiles/DomainPowerModeling.dir/src/PowerDomain2.cpp.o.d -o CMakeFiles/DomainPowerModeling.dir/src/PowerDomain2.cpp.o -c /home/zama/thesis_project/smth/src/PowerDomain2.cpp
 
 CMakeFiles/DomainPowerModeling.dir/src/PowerDomain2.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DomainPowerModeling.dir/src/PowerDomain2.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zama/thesis_project/DomainPowerModeling/src/PowerDomain2.cpp > CMakeFiles/DomainPowerModeling.dir/src/PowerDomain2.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zama/thesis_project/smth/src/PowerDomain2.cpp > CMakeFiles/DomainPowerModeling.dir/src/PowerDomain2.cpp.i
 
 CMakeFiles/DomainPowerModeling.dir/src/PowerDomain2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DomainPowerModeling.dir/src/PowerDomain2.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zama/thesis_project/DomainPowerModeling/src/PowerDomain2.cpp -o CMakeFiles/DomainPowerModeling.dir/src/PowerDomain2.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zama/thesis_project/smth/src/PowerDomain2.cpp -o CMakeFiles/DomainPowerModeling.dir/src/PowerDomain2.cpp.s
 
 CMakeFiles/DomainPowerModeling.dir/src/dut_top.cpp.o: CMakeFiles/DomainPowerModeling.dir/flags.make
 CMakeFiles/DomainPowerModeling.dir/src/dut_top.cpp.o: ../src/dut_top.cpp
 CMakeFiles/DomainPowerModeling.dir/src/dut_top.cpp.o: CMakeFiles/DomainPowerModeling.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zama/thesis_project/DomainPowerModeling/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/DomainPowerModeling.dir/src/dut_top.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DomainPowerModeling.dir/src/dut_top.cpp.o -MF CMakeFiles/DomainPowerModeling.dir/src/dut_top.cpp.o.d -o CMakeFiles/DomainPowerModeling.dir/src/dut_top.cpp.o -c /home/zama/thesis_project/DomainPowerModeling/src/dut_top.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zama/thesis_project/smth/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/DomainPowerModeling.dir/src/dut_top.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DomainPowerModeling.dir/src/dut_top.cpp.o -MF CMakeFiles/DomainPowerModeling.dir/src/dut_top.cpp.o.d -o CMakeFiles/DomainPowerModeling.dir/src/dut_top.cpp.o -c /home/zama/thesis_project/smth/src/dut_top.cpp
 
 CMakeFiles/DomainPowerModeling.dir/src/dut_top.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DomainPowerModeling.dir/src/dut_top.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zama/thesis_project/DomainPowerModeling/src/dut_top.cpp > CMakeFiles/DomainPowerModeling.dir/src/dut_top.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zama/thesis_project/smth/src/dut_top.cpp > CMakeFiles/DomainPowerModeling.dir/src/dut_top.cpp.i
 
 CMakeFiles/DomainPowerModeling.dir/src/dut_top.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DomainPowerModeling.dir/src/dut_top.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zama/thesis_project/DomainPowerModeling/src/dut_top.cpp -o CMakeFiles/DomainPowerModeling.dir/src/dut_top.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zama/thesis_project/smth/src/dut_top.cpp -o CMakeFiles/DomainPowerModeling.dir/src/dut_top.cpp.s
 
 CMakeFiles/DomainPowerModeling.dir/src/power_domain_logger.cpp.o: CMakeFiles/DomainPowerModeling.dir/flags.make
 CMakeFiles/DomainPowerModeling.dir/src/power_domain_logger.cpp.o: ../src/power_domain_logger.cpp
 CMakeFiles/DomainPowerModeling.dir/src/power_domain_logger.cpp.o: CMakeFiles/DomainPowerModeling.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zama/thesis_project/DomainPowerModeling/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/DomainPowerModeling.dir/src/power_domain_logger.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DomainPowerModeling.dir/src/power_domain_logger.cpp.o -MF CMakeFiles/DomainPowerModeling.dir/src/power_domain_logger.cpp.o.d -o CMakeFiles/DomainPowerModeling.dir/src/power_domain_logger.cpp.o -c /home/zama/thesis_project/DomainPowerModeling/src/power_domain_logger.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zama/thesis_project/smth/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/DomainPowerModeling.dir/src/power_domain_logger.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DomainPowerModeling.dir/src/power_domain_logger.cpp.o -MF CMakeFiles/DomainPowerModeling.dir/src/power_domain_logger.cpp.o.d -o CMakeFiles/DomainPowerModeling.dir/src/power_domain_logger.cpp.o -c /home/zama/thesis_project/smth/src/power_domain_logger.cpp
 
 CMakeFiles/DomainPowerModeling.dir/src/power_domain_logger.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DomainPowerModeling.dir/src/power_domain_logger.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zama/thesis_project/DomainPowerModeling/src/power_domain_logger.cpp > CMakeFiles/DomainPowerModeling.dir/src/power_domain_logger.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zama/thesis_project/smth/src/power_domain_logger.cpp > CMakeFiles/DomainPowerModeling.dir/src/power_domain_logger.cpp.i
 
 CMakeFiles/DomainPowerModeling.dir/src/power_domain_logger.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DomainPowerModeling.dir/src/power_domain_logger.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zama/thesis_project/DomainPowerModeling/src/power_domain_logger.cpp -o CMakeFiles/DomainPowerModeling.dir/src/power_domain_logger.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zama/thesis_project/smth/src/power_domain_logger.cpp -o CMakeFiles/DomainPowerModeling.dir/src/power_domain_logger.cpp.s
 
 CMakeFiles/DomainPowerModeling.dir/src/simulator.cpp.o: CMakeFiles/DomainPowerModeling.dir/flags.make
 CMakeFiles/DomainPowerModeling.dir/src/simulator.cpp.o: ../src/simulator.cpp
 CMakeFiles/DomainPowerModeling.dir/src/simulator.cpp.o: CMakeFiles/DomainPowerModeling.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zama/thesis_project/DomainPowerModeling/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/DomainPowerModeling.dir/src/simulator.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DomainPowerModeling.dir/src/simulator.cpp.o -MF CMakeFiles/DomainPowerModeling.dir/src/simulator.cpp.o.d -o CMakeFiles/DomainPowerModeling.dir/src/simulator.cpp.o -c /home/zama/thesis_project/DomainPowerModeling/src/simulator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zama/thesis_project/smth/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/DomainPowerModeling.dir/src/simulator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DomainPowerModeling.dir/src/simulator.cpp.o -MF CMakeFiles/DomainPowerModeling.dir/src/simulator.cpp.o.d -o CMakeFiles/DomainPowerModeling.dir/src/simulator.cpp.o -c /home/zama/thesis_project/smth/src/simulator.cpp
 
 CMakeFiles/DomainPowerModeling.dir/src/simulator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DomainPowerModeling.dir/src/simulator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zama/thesis_project/DomainPowerModeling/src/simulator.cpp > CMakeFiles/DomainPowerModeling.dir/src/simulator.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zama/thesis_project/smth/src/simulator.cpp > CMakeFiles/DomainPowerModeling.dir/src/simulator.cpp.i
 
 CMakeFiles/DomainPowerModeling.dir/src/simulator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DomainPowerModeling.dir/src/simulator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zama/thesis_project/DomainPowerModeling/src/simulator.cpp -o CMakeFiles/DomainPowerModeling.dir/src/simulator.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zama/thesis_project/smth/src/simulator.cpp -o CMakeFiles/DomainPowerModeling.dir/src/simulator.cpp.s
 
 # Object files for target DomainPowerModeling
 DomainPowerModeling_OBJECTS = \
@@ -204,10 +204,8 @@ DomainPowerModeling: CMakeFiles/DomainPowerModeling.dir/src/dut_top.cpp.o
 DomainPowerModeling: CMakeFiles/DomainPowerModeling.dir/src/power_domain_logger.cpp.o
 DomainPowerModeling: CMakeFiles/DomainPowerModeling.dir/src/simulator.cpp.o
 DomainPowerModeling: CMakeFiles/DomainPowerModeling.dir/build.make
-DomainPowerModeling: ../imported/systemc-2.3.4/lib/libsystemc.so.2.3.4
-DomainPowerModeling: ../imported/spdlog-1.11.0/lib/libspdlog.so.1.11.0
 DomainPowerModeling: CMakeFiles/DomainPowerModeling.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zama/thesis_project/DomainPowerModeling/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable DomainPowerModeling"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zama/thesis_project/smth/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable DomainPowerModeling"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DomainPowerModeling.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -219,6 +217,6 @@ CMakeFiles/DomainPowerModeling.dir/clean:
 .PHONY : CMakeFiles/DomainPowerModeling.dir/clean
 
 CMakeFiles/DomainPowerModeling.dir/depend:
-	cd /home/zama/thesis_project/DomainPowerModeling/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/zama/thesis_project/DomainPowerModeling /home/zama/thesis_project/DomainPowerModeling /home/zama/thesis_project/DomainPowerModeling/build /home/zama/thesis_project/DomainPowerModeling/build /home/zama/thesis_project/DomainPowerModeling/build/CMakeFiles/DomainPowerModeling.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/zama/thesis_project/smth/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/zama/thesis_project/smth /home/zama/thesis_project/smth /home/zama/thesis_project/smth/build /home/zama/thesis_project/smth/build /home/zama/thesis_project/smth/build/CMakeFiles/DomainPowerModeling.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/DomainPowerModeling.dir/depend
 

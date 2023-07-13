@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/zama/thesis_project/DomainPowerModeling
+CMAKE_SOURCE_DIR = /home/zama/thesis_project/smth
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/zama/thesis_project/DomainPowerModeling/build
+CMAKE_BINARY_DIR = /home/zama/thesis_project/smth/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zama/thesis_project/DomainPowerModeling/build/CMakeFiles /home/zama/thesis_project/DomainPowerModeling/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zama/thesis_project/smth/build/CMakeFiles /home/zama/thesis_project/smth/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zama/thesis_project/DomainPowerModeling/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zama/thesis_project/smth/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -128,6 +128,45 @@ DomainPowerModeling: cmake_check_build_system
 DomainPowerModeling/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DomainPowerModeling.dir/build.make CMakeFiles/DomainPowerModeling.dir/build
 .PHONY : DomainPowerModeling/fast
+
+#=============================================================================
+# Target rules for targets named ep_systemc
+
+# Build rule for target.
+ep_systemc: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ep_systemc
+.PHONY : ep_systemc
+
+# fast build rule for target.
+ep_systemc/fast:
+	$(MAKE) $(MAKESILENT) -f imported/Fused_ps/CMakeFiles/ep_systemc.dir/build.make imported/Fused_ps/CMakeFiles/ep_systemc.dir/build
+.PHONY : ep_systemc/fast
+
+#=============================================================================
+# Target rules for targets named ep_spdlog
+
+# Build rule for target.
+ep_spdlog: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ep_spdlog
+.PHONY : ep_spdlog
+
+# fast build rule for target.
+ep_spdlog/fast:
+	$(MAKE) $(MAKESILENT) -f imported/Fused_ps/CMakeFiles/ep_spdlog.dir/build.make imported/Fused_ps/CMakeFiles/ep_spdlog.dir/build
+.PHONY : ep_spdlog/fast
+
+#=============================================================================
+# Target rules for targets named ep_yaml_cpp
+
+# Build rule for target.
+ep_yaml_cpp: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ep_yaml_cpp
+.PHONY : ep_yaml_cpp
+
+# fast build rule for target.
+ep_yaml_cpp/fast:
+	$(MAKE) $(MAKESILENT) -f imported/Fused_ps/CMakeFiles/ep_yaml_cpp.dir/build.make imported/Fused_ps/CMakeFiles/ep_yaml_cpp.dir/build
+.PHONY : ep_yaml_cpp/fast
 
 src/DummyInterconnect.o: src/DummyInterconnect.cpp.o
 .PHONY : src/DummyInterconnect.o
@@ -329,6 +368,9 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... ep_spdlog"
+	@echo "... ep_systemc"
+	@echo "... ep_yaml_cpp"
 	@echo "... DomainPowerModeling"
 	@echo "... src/DummyInterconnect.o"
 	@echo "... src/DummyInterconnect.i"
