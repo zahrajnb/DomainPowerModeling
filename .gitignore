@@ -1,4 +1,6 @@
 # Ignore build files
-build/
+build
+# Ignore reports files
+reports
 # Ignore cache files
-.cache/
+.cache
