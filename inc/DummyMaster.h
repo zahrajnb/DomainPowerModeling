@@ -32,11 +32,12 @@ public:
   double read_power;
   double write_power;
 
-  DummyMaster(sc_module_name name, uint8_t num_irqs = 1, 
+  DummyMaster(sc_module_name name, 
   double enabled_power, 
   double stall_power, 
   double read_power,
-  double write_power);
+  double write_power
+  , uint8_t num_irqs = 1);
 
   ~DummyMaster();
   void write(uint32_t write_word, uint32_t address);

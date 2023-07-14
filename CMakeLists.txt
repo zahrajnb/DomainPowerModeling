@@ -113,5 +113,9 @@ file (GLOB SOURCES "${CMAKE_CURRENT_LIST_DIR}/src/*.cpp")
 
 #  add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
 # endif()
+
+include_directories(${CMAKE_CURRENT_LIST_DIR}/inc
+${CMAKE_CURRENT_LIST_DIR}/imported/Fused_ps/ps
+)
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
-target_link_libraries(${PROJECT_NAME} PUBLIC SystemC::systemc spdlog::spdlog Fused_ps::Fused_ps)
+target_link_libraries(${PROJECT_NAME} PUBLIC Fused_ps)

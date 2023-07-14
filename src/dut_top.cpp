@@ -38,11 +38,11 @@ void Dut_top::pd1_thread(){
     address = generate_random_address(2000); 
     if (read_or_write) {
       //read
-      pd1.cpu0.read(address);
+      pd1.cpu0->read(address);
     }else {
       //write
       uint32_t data = generate_random_payload();
-      pd1.cpu0.write(data, address);
+      pd1.cpu0->write(data, address);
     }
   }
 }
@@ -55,21 +55,21 @@ void Dut_top::pd2_thread(){
     address = generate_random_address(); 
     if (read_or_write) {
       //read
-      pd2.cpu0.read(address);
+      pd2.cpu0->read(address);
     }else {
       //write
       uint32_t data = generate_random_payload();
-      pd2.cpu0.write(data, address);
+      pd2.cpu0->write(data, address);
     }
     read_or_write = generate_random_transaction();
     address = generate_random_address(); 
     if (read_or_write) {
       //read
-      pd2.cpu1.read(address);
+      pd2.cpu1->read(address);
     }else {
       //write
       uint32_t data = generate_random_payload();
-      pd2.cpu1.write(data, address);
+      pd2.cpu1->write(data, address);
     }
   }
 }

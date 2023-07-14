@@ -8,8 +8,8 @@
 
 SC_HAS_PROCESS(DummyMaster);
 
-DummyMaster::DummyMaster(sc_module_name name, uint8_t num_irqs, double enabled_power, 
-  double stall_power, double read_power, double write_power)
+DummyMaster::DummyMaster(sc_module_name name, double enabled_power, 
+  double stall_power, double read_power, double write_power, uint8_t num_irqs)
     : sc_module(name),
       initiator_socket((string(name) + string("_initiator_socket")).c_str()),
       irqs_in((string(name) + string("_irqs_in")).c_str(), num_irqs){

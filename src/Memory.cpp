@@ -98,8 +98,8 @@ void Memory::end_of_elaboration(){
           std::unique_ptr<ConstantEnergyEvent>(new ConstantEnergyEvent("m_btransportWriteEventId", write_energy_consumption)));
   this->m_onStateId = this->powerModelPort->registerState(
           this->name(), 
-          std::unique_ptr<ConstantCurrentState>(new ConstantCurrentState("m_leakageStateId", on_state_current)));
+          std::unique_ptr<ConstantCurrentState>(new ConstantCurrentState("m_onStateId", on_state_current)));
   this->m_offStateId = this->powerModelPort->registerState(
           this->name(), 
-          std::unique_ptr<ConstantCurrentState>(new ConstantCurrentState("m_leakageStateId", off_state_current)));
+          std::unique_ptr<ConstantCurrentState>(new ConstantCurrentState("m_offStateId", off_state_current)));
 }

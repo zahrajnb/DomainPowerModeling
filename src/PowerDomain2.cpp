@@ -12,8 +12,8 @@ PowerDomain2::PowerDomain2(sc_module_name name)
     : sc_module(name){
 
   // modules' instantiation
-  cpu0 = new DummyMaster ("cpu0", 1, CPU0_ENABLED, CPU0_STALL, CPU0_READ, CPU0_WRITE);
-  cpu1 = new DummyMaster ("cpu1", 1, CPU1_ENABLED, CPU1_STALL, CPU1_READ, CPU1_WRITE);
+  cpu0 = new DummyMaster ("cpu0", CPU0_ENABLED, CPU0_STALL, CPU0_READ, CPU0_WRITE, 1);
+  cpu1 = new DummyMaster ("cpu1", CPU1_ENABLED, CPU1_STALL, CPU1_READ, CPU1_WRITE, 1);
   mem0 = new Memory ("mem0", MEM0_READ, MEM0_WRITE, MEM0_ON, MEM0_OFF);
   mem1 = new Memory ("mem1", MEM1_READ, MEM1_WRITE, MEM1_ON, MEM1_OFF);
 
@@ -26,7 +26,7 @@ PowerDomain2::PowerDomain2(sc_module_name name)
  cpu1->initiator_socket.bind(mem1->target_socket);
 
  // Power domain logger instantiation
-  pd2_logger = new power_domain_logger("pd2_logger", "./reports/domain_currents/pd2", sc_time(1, SC_US));
+  pd2_logger = new power_domain_logger("pd2_logger", "../reports/domain_currents/pd2", sc_time(1, SC_US));
 
   // Power logger connections for power domain 2
   // CPU0

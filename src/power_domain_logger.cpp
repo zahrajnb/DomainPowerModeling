@@ -44,7 +44,7 @@ void power_domain_logger::power_connector (string moduleID, string moduleType, P
 
     string PowerChannel_name_str = moduleID + "PowerChannel";
     string PowerBridge_name_str = moduleID + "PowerBridge";
-    string Report_location = "./reports/" + powerDomain + "/" + moduleType + "/" + moduleID;
+    string Report_location = "../reports/" + powerDomain + "/" + moduleType + "/" + moduleID;
     cout << "starting to create channels and bridges" << std::endl;
     power_channels.push_back(new PowerModelChannel(PowerChannel_name_str.c_str(), Report_location, sc_time(1, SC_US)));
     power_bridges.push_back(new PowerModelBridge(PowerBridge_name_str.c_str(), sc_time(1, SC_US)));
