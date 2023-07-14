@@ -236,41 +236,29 @@ DomainPowerModeling_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 DomainPowerModeling_SOURCE_DIR:STATIC=/home/zama/thesis_project/smth
 
-//Build tests
-ENABLE_TESTS:BOOL=ON
-
 //Installation directory for dependencies
-EP_INSTALL_DIR:STRING=/home/zama/thesis_project/DomainPowerModeling/imported/Fused_ps/imported
+EP_INSTALL_DIR:STRING=/home/zama/thesis_project/smth/imported/Fused_ps/imported
 
 //Value Computed by CMake
-Fused_BINARY_DIR:STATIC=/home/zama/thesis_project/smth/build/imported/Fused_ps
+Fused_ps_BINARY_DIR:STATIC=/home/zama/thesis_project/smth/build/imported/Fused_ps
 
 //Value Computed by CMake
-Fused_IS_TOP_LEVEL:STATIC=OFF
+Fused_ps_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-Fused_SOURCE_DIR:STATIC=/home/zama/thesis_project/smth/imported/Fused_ps
-
-//Git command line client
-GIT_EXECUTABLE:FILEPATH=/usr/bin/git
-
-//Download, build & install other dependencies only
-INSTALL_DEPENDENCIES:BOOL=ON
-
-//Value Computed by CMake
-INSTALL_DEPENDENCIES_BINARY_DIR:STATIC=/home/zama/thesis_project/smth/build/imported/Fused_ps
-
-//Value Computed by CMake
-INSTALL_DEPENDENCIES_IS_TOP_LEVEL:STATIC=OFF
-
-//Value Computed by CMake
-INSTALL_DEPENDENCIES_SOURCE_DIR:STATIC=/home/zama/thesis_project/smth/imported/Fused_ps
+Fused_ps_SOURCE_DIR:STATIC=/home/zama/thesis_project/smth/imported/Fused_ps
 
 //Build Doxygen document
 INSTALL_DEPS:BOOL=OFF
 
-//Download, build & install SystemC
-INSTALL_SYSTEMC:BOOL=ON
+//The directory containing a CMake configuration file for SystemCLanguage.
+SystemCLanguage_DIR:PATH=/home/zama/thesis_project/smth/imported/Fused_ps/imported/lib/cmake/SystemCLanguage
+
+//The directory containing a CMake configuration file for spdlog.
+spdlog_DIR:PATH=/home/zama/thesis_project/smth/imported/Fused_ps/imported/lib/cmake/spdlog
+
+//The directory containing a CMake configuration file for yaml-cpp.
+yaml-cpp_DIR:PATH=/home/zama/thesis_project/smth/imported/Fused_ps/imported/lib/cmake/yaml-cpp
 
 
 ########################
@@ -355,6 +343,10 @@ CMAKE_GENERATOR_INSTANCE:INTERNAL=
 CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
+//Test CMAKE_HAVE_LIBC_PTHREAD
+CMAKE_HAVE_LIBC_PTHREAD:INTERNAL=1
+//Have include pthread.h
+CMAKE_HAVE_PTHREAD_H:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=/home/zama/thesis_project/smth
@@ -420,6 +412,6 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: GIT_EXECUTABLE
-GIT_EXECUTABLE-ADVANCED:INTERNAL=1
+//Details about finding Threads
+FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 

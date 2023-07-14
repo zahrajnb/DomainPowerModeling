@@ -130,43 +130,17 @@ DomainPowerModeling/fast:
 .PHONY : DomainPowerModeling/fast
 
 #=============================================================================
-# Target rules for targets named ep_systemc
+# Target rules for targets named Fused_ps
 
 # Build rule for target.
-ep_systemc: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ep_systemc
-.PHONY : ep_systemc
+Fused_ps: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Fused_ps
+.PHONY : Fused_ps
 
 # fast build rule for target.
-ep_systemc/fast:
-	$(MAKE) $(MAKESILENT) -f imported/Fused_ps/CMakeFiles/ep_systemc.dir/build.make imported/Fused_ps/CMakeFiles/ep_systemc.dir/build
-.PHONY : ep_systemc/fast
-
-#=============================================================================
-# Target rules for targets named ep_spdlog
-
-# Build rule for target.
-ep_spdlog: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ep_spdlog
-.PHONY : ep_spdlog
-
-# fast build rule for target.
-ep_spdlog/fast:
-	$(MAKE) $(MAKESILENT) -f imported/Fused_ps/CMakeFiles/ep_spdlog.dir/build.make imported/Fused_ps/CMakeFiles/ep_spdlog.dir/build
-.PHONY : ep_spdlog/fast
-
-#=============================================================================
-# Target rules for targets named ep_yaml_cpp
-
-# Build rule for target.
-ep_yaml_cpp: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ep_yaml_cpp
-.PHONY : ep_yaml_cpp
-
-# fast build rule for target.
-ep_yaml_cpp/fast:
-	$(MAKE) $(MAKESILENT) -f imported/Fused_ps/CMakeFiles/ep_yaml_cpp.dir/build.make imported/Fused_ps/CMakeFiles/ep_yaml_cpp.dir/build
-.PHONY : ep_yaml_cpp/fast
+Fused_ps/fast:
+	$(MAKE) $(MAKESILENT) -f imported/Fused_ps/CMakeFiles/Fused_ps.dir/build.make imported/Fused_ps/CMakeFiles/Fused_ps.dir/build
+.PHONY : Fused_ps/fast
 
 src/DummyInterconnect.o: src/DummyInterconnect.cpp.o
 .PHONY : src/DummyInterconnect.o
@@ -368,10 +342,8 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... ep_spdlog"
-	@echo "... ep_systemc"
-	@echo "... ep_yaml_cpp"
 	@echo "... DomainPowerModeling"
+	@echo "... Fused_ps"
 	@echo "... src/DummyInterconnect.o"
 	@echo "... src/DummyInterconnect.i"
 	@echo "... src/DummyInterconnect.s"

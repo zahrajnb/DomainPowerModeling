@@ -204,6 +204,9 @@ DomainPowerModeling: CMakeFiles/DomainPowerModeling.dir/src/dut_top.cpp.o
 DomainPowerModeling: CMakeFiles/DomainPowerModeling.dir/src/power_domain_logger.cpp.o
 DomainPowerModeling: CMakeFiles/DomainPowerModeling.dir/src/simulator.cpp.o
 DomainPowerModeling: CMakeFiles/DomainPowerModeling.dir/build.make
+DomainPowerModeling: imported/Fused_ps/libFused_ps.a
+DomainPowerModeling: ../imported/Fused_ps/imported/lib/libsystemc.so.2.3.3
+DomainPowerModeling: ../imported/Fused_ps/imported/lib/libspdlog.a
 DomainPowerModeling: CMakeFiles/DomainPowerModeling.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zama/thesis_project/smth/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable DomainPowerModeling"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DomainPowerModeling.dir/link.txt --verbose=$(VERBOSE)
