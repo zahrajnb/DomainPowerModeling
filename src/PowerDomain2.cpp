@@ -26,7 +26,7 @@ PowerDomain2::PowerDomain2(sc_module_name name)
  cpu1->initiator_socket.bind(mem1->target_socket);
 
  // Power domain logger instantiation
-  pd2_logger = new power_domain_logger("pd2_logger", "../reports/domain_currents/pd2", sc_time(1, SC_US));
+  pd2_logger = new power_domain_logger("pd2_logger", "../reports/domain_currents/pd2", sc_time(50, SC_NS));
 
   // Power logger connections for power domain 2
   // CPU0

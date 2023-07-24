@@ -26,8 +26,6 @@ public:
   tlm_utils::simple_initiator_socket<DummyInterconnect> initiator_socket0;
   tlm_utils::simple_initiator_socket<DummyInterconnect> initiator_socket1;
 
-  PowerModelEventOutPort powerModelPort{"powerModelPort"};
-
   DummyInterconnect(sc_module_name name);
   ~DummyInterconnect();
 

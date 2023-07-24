@@ -27,15 +27,12 @@ PowerDomain1::PowerDomain1(sc_module_name name)
   bus0->initiator_socket1.bind(mem1->target_socket);
 
   // Power domain logger instantiation
-  pd1_logger = new power_domain_logger("pd1_logger", "../reports/domain_currents/pd1", sc_time(1, SC_US));
+  pd1_logger = new power_domain_logger("pd1_logger", "../reports/domain_currents/pd1", sc_time(10, SC_NS));
 
   // Power logger connections for power domain 1
   // CPU0
   pd1_logger->power_connector ("cpu0" , "cpu" , &(cpu0->powerModelPort), "pd1");
   cout << "power connector for cpu0 done " << std::endl;
-  // BUS0
-  pd1_logger->power_connector ("bus0" , "peripheral" , &(bus0->powerModelPort), "pd1");
-  cout << "power connector for bus0 done " << std::endl;
   // MEM0
   pd1_logger->power_connector ("mem0" , "memory" , &(mem0->powerModelPort), "pd1");
   cout << "power connector for mem0 done " << std::endl;

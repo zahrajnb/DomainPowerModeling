@@ -107,10 +107,10 @@ void DummyMaster::irq(){
   // TODO: Toggle module state here
   if (enabled){
     this->powerModelPort->reportState(c_enabledStateId);
-    stall = ! enabled;
-  } else if (stall){
+    enabled = false;
+  } else {
     this->powerModelPort->reportState(c_stallStateId);
-    enabled = ! stall;
+    enabled = true;
   }
 }
 
@@ -128,7 +128,7 @@ void DummyMaster::end_of_elaboration(){
     std::unique_ptr<ConstantEnergyEvent>(new ConstantEnergyEvent("readEvent", this->read_power)));
   this->c_writeEventId = this->powerModelPort->registerEvent(
     this->name(),
-    std::unique_ptr<ConstantEnergyEvent>(new ConstantEnergyEvent("eriteEvent", this->write_power)));
+    std::unique_ptr<ConstantEnergyEvent>(new ConstantEnergyEvent("writeEvent", this->write_power)));
 }
 
 DummyMaster::~DummyMaster() { delete trans; }

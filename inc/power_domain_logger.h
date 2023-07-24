@@ -16,6 +16,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <map>
 
 using namespace sc_core;
 using namespace sc_dt;
@@ -45,12 +46,18 @@ public:
     */
     ~power_domain_logger();
 
-    // Voltage and current per each power domain using the power domain logger
-    sc_signal<double> total_current{"total_current", 0.0}; // initialize the total current value to 0
+    /**
+     * @brief A map to associate each power domain with its corresponding total current
+     */
+    map<std::string, double> total_current_per_domain;
+
     sc_signal<double> voltage{"voltage", 0.9};
+
+    double temp_current;
 
     // Logging 
     std::string m_power_domain_current_LogFileName;
+    std::string m_total_domain_current_LogFileName;
 
     // Log file timestep
     sc_core::sc_time m_logTimestep;
@@ -61,6 +68,7 @@ public:
     struct CurrentModule {
         sc_signal<double>* module_current;
         std::string moduleID;
+        std::string powerDomain;
     };
 
     /**
@@ -77,9 +85,14 @@ public:
     vector<PowerModelBridge*> power_bridges;
 
     /**
-    *  @brief A method that writes the event log to a csv
+    *  @brief A method that writes the current for each module in each power domain to a csv
     */
     void dumpCurrentCsv();
+
+    /**
+    *  @brief A method that writes the total current of all the modules in a power domain to a csv
+    */
+    void dumpTotalCurrentCsv();
 
     /**
     *  @brief function to creat the power channels and power bridges based on fused and make the connections

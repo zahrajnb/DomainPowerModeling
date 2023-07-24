@@ -20,6 +20,10 @@ power_domain_logger::power_domain_logger(const sc_module_name name,
                              ? "none"
                              : logFilePath + "/"  +
                                    "currentlog.csv"),
+        m_total_domain_current_LogFileName(logFilePath == "none"
+                        ? "none"
+                        : logFilePath + "/"  +
+                            "total_domain_currentlog.csv"),                           
         m_logTimestep(logTimestep)
 {
     if (logFilePath != "none") {
@@ -34,6 +38,12 @@ power_domain_logger::power_domain_logger(const sc_module_name name,
             this->name(),
             fmt::format("Can't open current log file at {}", m_power_domain_current_LogFileName).c_str());
         } 
+        std::ofstream log_total(m_total_domain_current_LogFileName, std::ios::out | std::ios::trunc);
+        if (!log_total.good()) {
+            SC_REPORT_FATAL(
+            this->name(),
+            fmt::format("Can't open total current log file at {}", m_total_domain_current_LogFileName).c_str());
+        }
     }
     SC_HAS_PROCESS(power_domain_logger);
     SC_THREAD(log_process);
@@ -45,9 +55,9 @@ void power_domain_logger::power_connector (string moduleID, string moduleType, P
     string PowerChannel_name_str = moduleID + "PowerChannel";
     string PowerBridge_name_str = moduleID + "PowerBridge";
     string Report_location = "../reports/" + powerDomain + "/" + moduleType + "/" + moduleID;
-    cout << "starting to create channels and bridges" << std::endl;
-    power_channels.push_back(new PowerModelChannel(PowerChannel_name_str.c_str(), Report_location, sc_time(1, SC_US)));
-    power_bridges.push_back(new PowerModelBridge(PowerBridge_name_str.c_str(), sc_time(1, SC_US)));
+    
+    power_channels.push_back(new PowerModelChannel(PowerChannel_name_str.c_str(), Report_location, m_logTimestep));
+    power_bridges.push_back(new PowerModelBridge(PowerBridge_name_str.c_str(), m_logTimestep));
 
     PowerModelChannel *module_p_channel = power_channels.back();
     PowerModelBridge *module_p_bridge = power_bridges.back();
@@ -61,15 +71,20 @@ void power_domain_logger::power_connector (string moduleID, string moduleType, P
     CurrentModule* currentModule = new CurrentModule;
     currentModule->module_current = current_bind; // Read the initial value of the signal
     currentModule->moduleID = moduleID;
+    currentModule->powerDomain = powerDomain;
     currents.push_back(currentModule);
 
+    // If the power domain is not yet in the map, initialize its total current to 0.0
+    if (total_current_per_domain.find(powerDomain) == total_current_per_domain.end()) {
+        total_current_per_domain[powerDomain] = 0.0;
+    }
+
     module_p_bridge->powerModelPort.bind(*(module_p_channel));
-    (*powerPort).bind(*(module_p_channel));
-    cout << "power port binded " << std::endl;    
+    (*powerPort).bind(*(module_p_channel));  
 }
 
 void power_domain_logger::log_process() {
-    double sum = 0.0;
+    
     std::vector<std::string> savedModuleIDs;  // Vector to store previously saved moduleIDs
 
     while (1) {
@@ -79,27 +94,27 @@ void power_domain_logger::log_process() {
         for (const auto& currentModule : currents) {
             double currentVal = currentModule->module_current->read();
             std::string currentModuleID = currentModule->moduleID;
-            std::cout << "Module ID: " << currentModuleID << std::endl;
-            std::cout << "Module Current: " << currentVal << std::endl;
+            std::string powerDomain = currentModule->powerDomain; 
+            spdlog::info("current for module {} in {} is {}", currentModuleID, powerDomain, currentVal);
 
             // Check if the moduleID is already saved
             if (currentVal != 0.0 && std::find(savedModuleIDs.begin(), savedModuleIDs.end(), currentModuleID) == savedModuleIDs.end()) {
                 // Adds all the values of current from modules in each domain calling the power_connector
-                sum += currentVal;
-                total_current.write(sum);
+                total_current_per_domain[powerDomain] += currentVal;
                 savedModuleIDs.push_back(currentModuleID);
-                cout << "*************accumulated current is*************: " << total_current << std::endl;
+                spdlog::info("accumulated current for domain {}: {}", powerDomain, total_current_per_domain[powerDomain]);
                 
             }
         }
         // Call dumpCurrentCsv to write the vector to the CSV file
+        dumpTotalCurrentCsv();
         dumpCurrentCsv();
-        cout << "*************accumulated current is*************: " << total_current << std::endl;
     }
 }
 
 void power_domain_logger::dumpCurrentCsv()
 {
+    temp_current = 0.0;
     std::ofstream log_file(m_power_domain_current_LogFileName, std::ios::out | std::ios::app);
     // Write elements of the currents vector to the CSV file
     if (log_file.tellp() == 0) {
@@ -115,6 +130,29 @@ void power_domain_logger::dumpCurrentCsv()
     log_file.close();  // Close the file
 }
 
+void power_domain_logger::dumpTotalCurrentCsv()
+{
+    std::ofstream log_file(m_total_domain_current_LogFileName, std::ios::out | std::ios::app);
+    
+    if (log_file.tellp() == 0) {
+        // Header
+        log_file << "total_current, power domain, time(s)\n";
+    }
+    // Values
+    
+    // Values
+    for (const auto& entry : total_current_per_domain) {
+        const std::string& powerDomain = entry.first;
+        double totalCurrent = entry.second;
+
+        log_file << totalCurrent << ",";
+        log_file << powerDomain << ",";
+        log_file << sc_time_stamp().to_seconds() << "\n";
+    }
+
+    log_file.close();  // Close the file
+}
+
 power_domain_logger::~power_domain_logger()
 {
     // deleting the pointers 
@@ -125,4 +163,3 @@ power_domain_logger::~power_domain_logger()
         delete bridge_ptr;
     }
 }
-

@@ -21,6 +21,8 @@ The Power Domain Logger leverages the power model in Fused_ps, capturing high-le
 
 Additionally, this repository includes a simple usage example with dummy components to demonstrate the functionality of the Power Domain Logger.
 
+The Power numbers in the power_defines.h are random numbers in the approximate power consumption range for a 60nm technology node.
+
 ## Installation
 
 To install and set up the DomainPowerModeling project, follow the steps below:

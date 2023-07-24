@@ -32,20 +32,18 @@ public:
   double read_power;
   double write_power;
 
-  DummyMaster(sc_module_name name, 
-  double enabled_power, 
-  double stall_power, 
-  double read_power,
-  double write_power
-  , uint8_t num_irqs = 1);
+  DummyMaster(sc_module_name name, double enabled_power, double stall_power, 
+  double read_power,double write_power, uint8_t num_irqs = 1);
 
   ~DummyMaster();
+
   void write(uint32_t write_word, uint32_t address);
   void read(uint32_t address);
+
   sc_vector<sc_signal<bool>> irqs_in;
 
-  bool stall;
-  bool enabled;
+  
+  bool enabled{};
 
   int c_enabledStateId{-1};
   int c_stallStateId{-1};
@@ -55,6 +53,7 @@ public:
   virtual void end_of_elaboration() override;
 
 private:
+
   void b_transport(tlm::tlm_generic_payload &trans, sc_time &delay);
   void write_thread();
   void read_thread();
