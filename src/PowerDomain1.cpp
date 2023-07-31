@@ -27,7 +27,7 @@ PowerDomain1::PowerDomain1(sc_module_name name)
   bus0->initiator_socket1.bind(mem1->target_socket);
 
   // Power domain logger instantiation
-  pd1_logger = new power_domain_logger("pd1_logger", "../reports/domain_currents/pd1", sc_time(10, SC_NS));
+  pd1_logger = new power_domain_logger("pd1_logger", "../reports/domain_currents/pd1", sc_time(1, SC_US));
 
   // Power logger connections for power domain 1
   // CPU0

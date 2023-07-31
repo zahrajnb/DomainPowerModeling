@@ -180,40 +180,40 @@ for file in glob.iglob(sys.argv[1] + '\**\*.csv', recursive=True):
     try:
         fname = os.fsdecode(file)
         print(fname)
-        # if "event_power_log" in fname:
-        #     plot_dynamic_power(fname, rows_to_plot)
-        if "eventlog" in fname:
+        if "event_power_log" in fname:
+            plot_dynamic_power(fname, rows_to_plot)
+        elif "eventlog" in fname:
             plot_events(fname, rows_to_plot)
         elif "statelog" in fname:
             plot_states(fname, rows_to_plot)
-        # elif "static_power_log" in fname:
-        #     plot_static_power(fname, rows_to_plot)
-        # elif "normalized" in fname:
-        #         with open(fname) as f:
-        #             data = np.loadtxt(f, delimiter=',', dtype='float', ndmin=1, max_rows=rows_to_plot)
-        #         f.close()
+        elif "static_power_log" in fname:
+            plot_static_power(fname, rows_to_plot)
+        elif "normalized" in fname:
+                with open(fname) as f:
+                    data = np.loadtxt(f, delimiter=',', dtype='float', ndmin=1, max_rows=rows_to_plot)
+                f.close()
 
-        #         fig, ax = plt.subplots()
-        #         fig.set_size_inches(10,7)  
-        #         fig.set_dpi(200)
+                fig, ax = plt.subplots()
+                fig.set_size_inches(10,7)  
+                fig.set_dpi(200)
 
-        #         time = data[:,-1]
+                time = data[:,-1]
 
-        #         ax.plot(time, data[:,0], linewidth=2.0)
-        #         ax.set_title("Normalized ESL power consumption")
-        #         plt.grid(visible=True, axis='both', which='both')
-        #         plt.legend(["Normalized total power"])
-        #         #plt.xticks(rotation=40)
-        #         plt.yticks(minor=True)
-        #         ax.set_xlabel("Time [s]")
-        #         ax.set_ylabel("Power [W]")
-        #         # ax.autoscale()
-        #         fname_no_ending = fname.split('.')[0]
-        #         ax.autoscale()
-        #         plt.style.use('seaborn-v0_8-dark-palette')
-        #         plt.savefig(fname_no_ending + ".png")
-        #         plt.show()
-        #         plt.close()
+                ax.plot(time, data[:,0], linewidth=2.0)
+                ax.set_title("Normalized ESL power consumption")
+                plt.grid(visible=True, axis='both', which='both')
+                plt.legend(["Normalized total power"])
+                #plt.xticks(rotation=40)
+                plt.yticks(minor=True)
+                ax.set_xlabel("Time [s]")
+                ax.set_ylabel("Power [W]")
+                # ax.autoscale()
+                fname_no_ending = fname.split('.')[0]
+                ax.autoscale()
+                plt.style.use('seaborn-v0_8-dark-palette')
+                plt.savefig(fname_no_ending + ".png")
+                plt.show()
+                plt.close()
         else:
             print("Log not recognized:\n " + fname)
     except Exception as e:

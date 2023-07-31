@@ -139,8 +139,6 @@ void power_domain_logger::dumpTotalCurrentCsv()
         log_file << "total_current, power domain, time(s)\n";
     }
     // Values
-    
-    // Values
     for (const auto& entry : total_current_per_domain) {
         const std::string& powerDomain = entry.first;
         double totalCurrent = entry.second;

@@ -2,10 +2,8 @@ import matplotlib.pyplot as plt
 import matplotlib.rcsetup
 import matplotlib.colors as mcolors
 import numpy as np 
-import numpy as np 
 import sys
 import os
-from io import StringIO
 import glob
 
 # Check if the folder path argument is provided
@@ -14,14 +12,13 @@ if len(sys.argv) < 2:
     print("Usage: python script.py /path/to/folder")
     sys.exit(1)
 
-total_event_power = np.zeros((1,1), dtype='float') #Completely random number
-total_state_power = np.zeros((1,1), dtype='float')
+total_event_power = None
+total_state_power = None
 
 # If argument is None, all rows are plotted
-if len(sys.argv) >= 3 and sys.argv[2] == 'None':
-    rows_to_plot = None
-else:
-    rows_to_plot = int(sys.argv[2]) if len(sys.argv) >= 3 else None
+rows_to_plot = None
+if len(sys.argv) >= 3 and sys.argv[2] != 'None':
+    rows_to_plot = int(sys.argv[2])
 
 # Search through all files in the provided folder
 for file in glob.iglob(os.path.join('reports', '**', '*.csv'), recursive=True):
@@ -32,32 +29,37 @@ for file in glob.iglob(os.path.join('reports', '**', '*.csv'), recursive=True):
             with open(fname) as infile:
                 data = np.loadtxt(infile, dtype='float', delimiter=',', skiprows=1, ndmin=2, max_rows=rows_to_plot)
             infile.close()
-            total_event_power = np.resize(total_event_power, (data.shape[0], 1))
-            component_power = data[:, -2]
-            total_event_power[:, 0] = np.add(total_event_power[:, 0], component_power)
+            if total_event_power is None:
+                total_event_power = data[:, -2]
+            else:
+                total_event_power += data[:, -2]
+
         # Add all static power
         elif "static_power_log" in fname and "total" not in fname and "normalized" not in fname:
             with open(fname) as infile:
                 data = np.loadtxt(infile, dtype='float', delimiter=',', skiprows=1, ndmin=2, max_rows=rows_to_plot)
             infile.close()
-            total_state_power = np.resize(total_state_power, (data.shape[0], 1))
-            if data.shape[1] > 1:
-                component_power = data[:, -1]
-                total_state_power[:, 0] = np.add(total_state_power[:, 0], component_power)
+            if total_state_power is None:
+                total_state_power = data[:, 0]
+            else:
+                total_state_power += data[:, 0]
     except Exception as e:
         print(e)
 
 time = data[:,-1]
 print(time)
-total = np.add(total_event_power, total_state_power)
+total = total_event_power + total_state_power
 print(total)
 
 time = np.expand_dims(time, 1)
+total = np.expand_dims(total, 1)  # Add a new axis to make it a 2D array
 total_with_time = np.concatenate((total, time), axis=1)
 
 np.savetxt(sys.argv[1] + "\\total_event_power.csv", total_event_power, delimiter=',')
 np.savetxt(sys.argv[1] + "\\total_state_power.csv", total_state_power, delimiter=',')
-np.savetxt(sys.argv[1] + "\\total_power.csv", total_with_time, delimiter=',')
+np.savetxt(sys.argv[1] + "\\total_power.csv", total, delimiter=',')
+
+
 
 matplotlib.rcParams.update({'font.size': 15, 'font.family':'monospace'})
 matplotlib.rcParams.update({'xtick.labelsize': 10})
@@ -99,12 +101,7 @@ fig3.set_size_inches(12,6)
 fig3.set_dpi(200)
 plt.xticks(rotation=40)
 ax3.plot(time, total, linewidth=1.0)
-# ax3.plot(state_time, total_event_power, linewidth=1.0)
-# ax3.plot(state_time, total_state_power, linewidth=1.0)
-# ax3.plot(state_time, np.full(total.shape, total.min(axis=0)), linewidth=1.0)
-# ax3.plot(state_time, np.full(total.shape, total.max(axis=0)), linewidth=1.0)
-# ax3.plot(state_time, np.full(total.shape, np.average(total,axis=0)), linewidth=1.0)
-# ax.plot(event_time, reference, linewidth=3.0)
+
 ax3.set_title("Power consumption")
 ax3.legend(("Total ESL", "Total RTL", "Min", "Max", "Average"))
 ax3.set_xlabel("Time [s]")
@@ -116,4 +113,15 @@ plt.style.use('seaborn-v0_8-dark-palette')
 fig3.savefig(sys.argv[1] + "_total_power.png")
 fig3.show()
 
+# ...
+if time.shape[0] == total_event_power.shape[0] and time.shape[0] == total_state_power.shape[0]:
+    ax1.plot(time, total_event_power, linewidth=1.0)
+    ax2.plot(time, total_state_power, linewidth=1.0)
+    ax3.plot(time, total, linewidth=1.0)
+    # Rest of the plotting code...
+else:
+    print("Data shapes do not match.")
+
 plt.close()
+
+

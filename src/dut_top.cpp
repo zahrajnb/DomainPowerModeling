@@ -32,7 +32,7 @@ uint32_t Dut_top::generate_random_payload(){
 
 void Dut_top::pd1_thread(){
   while(true){
-    wait(50, SC_NS);
+    wait(1, SC_US);
     uint32_t address = 0x0;
     bool read_or_write = generate_random_transaction();
     address = generate_random_address(2000); 
@@ -49,7 +49,7 @@ void Dut_top::pd1_thread(){
 
 void Dut_top::pd2_thread(){
   while(true){
-    wait(100, SC_NS);
+    wait(2, SC_US);
     uint32_t address = 0x0;
     bool read_or_write = generate_random_transaction();
     address = generate_random_address(); 
