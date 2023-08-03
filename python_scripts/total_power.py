@@ -21,7 +21,7 @@ if len(sys.argv) >= 3 and sys.argv[2] != 'None':
     rows_to_plot = int(sys.argv[2])
 
 # Search through all files in the provided folder
-for file in glob.iglob(os.path.join('reports', '**', '*.csv'), recursive=True):
+for file in glob.iglob(os.path.join('reports', 'pd2', '**', '*.csv'), recursive=True):
     fname = os.fsdecode(file)
     # Add all event power
     try:

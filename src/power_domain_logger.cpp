@@ -13,17 +13,15 @@ using namespace std;
 SC_HAS_PROCESS(power_domain_logger);
 
 power_domain_logger::power_domain_logger(const sc_module_name name,
+                        double domainVoltage,
                         const std::string logFilePath,
                         sc_time logTimestep): 
         sc_module(name),
+        domainVoltage(domainVoltage),
         m_power_domain_current_LogFileName(logFilePath == "none"
                              ? "none"
                              : logFilePath + "/"  +
-                                   "currentlog.csv"),
-        m_total_domain_current_LogFileName(logFilePath == "none"
-                        ? "none"
-                        : logFilePath + "/"  +
-                            "total_domain_currentlog.csv"),                           
+                                   "currentlog.csv"),                       
         m_logTimestep(logTimestep)
 {
     if (logFilePath != "none") {
@@ -38,12 +36,6 @@ power_domain_logger::power_domain_logger(const sc_module_name name,
             this->name(),
             fmt::format("Can't open current log file at {}", m_power_domain_current_LogFileName).c_str());
         } 
-        std::ofstream log_total(m_total_domain_current_LogFileName, std::ios::out | std::ios::trunc);
-        if (!log_total.good()) {
-            SC_REPORT_FATAL(
-            this->name(),
-            fmt::format("Can't open total current log file at {}", m_total_domain_current_LogFileName).c_str());
-        }
     }
     SC_HAS_PROCESS(power_domain_logger);
     SC_THREAD(log_process);
@@ -63,7 +55,7 @@ void power_domain_logger::power_connector (string moduleID, string moduleType, P
     PowerModelBridge *module_p_bridge = power_bridges.back();
     
     sc_signal<double>* current_bind = new sc_signal<double>();
-    
+    voltage = domainVoltage;
     module_p_bridge->v_in.bind(voltage);
     module_p_bridge->i_out.bind(*current_bind);
 
@@ -107,7 +99,6 @@ void power_domain_logger::log_process() {
             }
         }
         // Call dumpCurrentCsv to write the vector to the CSV file
-        dumpTotalCurrentCsv();
         dumpCurrentCsv();
     }
 }
@@ -127,27 +118,6 @@ void power_domain_logger::dumpCurrentCsv()
         log_file << module->module_current->read() << ",";
         log_file << sc_time_stamp().to_seconds() << "\n";
     }
-    log_file.close();  // Close the file
-}
-
-void power_domain_logger::dumpTotalCurrentCsv()
-{
-    std::ofstream log_file(m_total_domain_current_LogFileName, std::ios::out | std::ios::app);
-    
-    if (log_file.tellp() == 0) {
-        // Header
-        log_file << "total_current, power domain, time(s)\n";
-    }
-    // Values
-    for (const auto& entry : total_current_per_domain) {
-        const std::string& powerDomain = entry.first;
-        double totalCurrent = entry.second;
-
-        log_file << totalCurrent << ",";
-        log_file << powerDomain << ",";
-        log_file << sc_time_stamp().to_seconds() << "\n";
-    }
-
     log_file.close();  // Close the file
 }
 

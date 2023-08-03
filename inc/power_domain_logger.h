@@ -38,6 +38,7 @@ public:
     */
     
     power_domain_logger(const sc_module_name name,
+                const double domainVoltage,
                 const std::string logFilePath = "",
                 const sc_core::sc_time logTimestep = sc_core::SC_ZERO_TIME);
 
@@ -51,13 +52,14 @@ public:
      */
     map<std::string, double> total_current_per_domain;
 
-    sc_signal<double> voltage{"voltage", 0.9};
+    sc_signal<double> voltage{"voltage"};
+    // sc_core::sc_in<double> voltage{"voltage"};
+    double domainVoltage;
 
     double temp_current;
 
     // Logging 
     std::string m_power_domain_current_LogFileName;
-    std::string m_total_domain_current_LogFileName;
 
     // Log file timestep
     sc_core::sc_time m_logTimestep;
@@ -89,10 +91,6 @@ public:
     */
     void dumpCurrentCsv();
 
-    /**
-    *  @brief A method that writes the total current of all the modules in a power domain to a csv
-    */
-    void dumpTotalCurrentCsv();
 
     /**
     *  @brief function to creat the power channels and power bridges based on fused and make the connections

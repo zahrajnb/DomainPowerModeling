@@ -11,6 +11,9 @@ SC_HAS_PROCESS(PowerDomain2);
 PowerDomain2::PowerDomain2(sc_module_name name)
     : sc_module(name){
 
+  // Domain voltage
+  double voltage_d2 = 0.6; 
+
   // modules' instantiation
   cpu0 = new DummyMaster ("cpu0", CPU0_ENABLED, CPU0_STALL, CPU0_READ, CPU0_WRITE, 1);
   cpu1 = new DummyMaster ("cpu1", CPU1_ENABLED, CPU1_STALL, CPU1_READ, CPU1_WRITE, 1);
@@ -26,7 +29,7 @@ PowerDomain2::PowerDomain2(sc_module_name name)
  cpu1->initiator_socket.bind(mem1->target_socket);
 
  // Power domain logger instantiation
-  pd2_logger = new power_domain_logger("pd2_logger", "../reports/domain_currents/pd2", sc_time(1, SC_US));
+  pd2_logger = new power_domain_logger("pd2_logger", voltage_d2, "../reports/domain_currents/pd2", sc_time(1, SC_US));
 
   // Power logger connections for power domain 2
   // CPU0
