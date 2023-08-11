@@ -17,6 +17,7 @@ matplotlib.rcParams.update({'legend.fontsize': 10})
 
 # Function to plot states for a certain number of rows
 def plot_states(fname, rows_to_plot):
+    print("Inside plot_states function. fname:", fname)
     header = []
     data = []
     # The static power report has a weird header, need to extract state names from it
@@ -123,8 +124,8 @@ def plot_events(fname, rows_to_plot):
         data = np.loadtxt(f, delimiter=',', dtype='int', skiprows=1, ndmin=1, max_rows=rows_to_plot)
     f.close()
 
-    data = ndimage.zoom(data, 0.01)
-    time = data[...,data[0].size - 1]
+    data = ndimage.zoom(data, (0.1, 1))
+    time = data[:,-1]
     event_count = []
 
     # Remove module name from event name (better looking plot)
@@ -171,12 +172,14 @@ def plot_events(fname, rows_to_plot):
     #plt.show()
     plt.close()
 
+print("Command-line arguments:", sys.argv)
+
 if sys.argv[2] == 'None':
     rows_to_plot = None
 else:
     rows_to_plot = int(sys.argv[2])
 
-for file in glob.iglob(sys.argv[1] + '\**\*.csv', recursive=True):
+for file in glob.iglob(os.path.join('**', '*.csv'), recursive=True):
     try:
         fname = os.fsdecode(file)
         print(fname)
@@ -200,9 +203,9 @@ for file in glob.iglob(sys.argv[1] + '\**\*.csv', recursive=True):
                 time = data[:,-1]
 
                 ax.plot(time, data[:,0], linewidth=2.0)
-                ax.set_title("Normalized ESL power consumption")
+                ax.set_title("ESL power consumption")
                 plt.grid(visible=True, axis='both', which='both')
-                plt.legend(["Normalized total power"])
+                plt.legend(["total power"])
                 #plt.xticks(rotation=40)
                 plt.yticks(minor=True)
                 ax.set_xlabel("Time [s]")

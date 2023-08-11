@@ -12,13 +12,13 @@ PowerDomain1::PowerDomain1(sc_module_name name)
     : sc_module(name){
 
   // Domain voltage
-  double voltage_d1 = 0.9; 
+  double voltage_d1 = 2.6; 
 
   // modules' instantiation
-  cpu0 = new DummyMaster ("cpu0", CPU0_ENABLED, CPU0_STALL, CPU0_READ, CPU0_WRITE, 2);
+  cpu0 = new DummyMaster ("cpu0", PD1_CPU0_STATE1, PD1_CPU0_STATE2, PD1_CPU0_LOAD, PD1_CPU0_STORE, 2);
   bus0 = new DummyInterconnect ("bus0");
-  mem0 = new Memory ("mem0", MEM0_READ, MEM0_WRITE, MEM0_ON, MEM0_OFF);
-  mem1 = new Memory ("mem1", MEM1_READ, MEM1_WRITE, MEM1_ON, MEM1_OFF);
+  mem0 = new Memory ("mem0", PD1_MEM0_READ, PD1_MEM0_WRITE, PD1_MEM0_STATE1, PD1_MEM0_STATE2);
+  mem1 = new Memory ("mem1", PD1_MEM1_READ, PD1_MEM1_WRITE, PD1_MEM1_STATE1, PD1_MEM1_STATE2);
 
   // signal binding
   mem0->irq_out.bind(cpu0->irqs_in[0]);
@@ -35,13 +35,13 @@ PowerDomain1::PowerDomain1(sc_module_name name)
   // Power logger connections for power domain 1
   // CPU0
   pd1_logger->power_connector ("cpu0" , "cpu" , &(cpu0->powerModelPort), "pd1");
-  cout << "power connector for cpu0 done " << std::endl;
+  spdlog::info("power connector for cpu0 pd1 done");
   // MEM0
   pd1_logger->power_connector ("mem0" , "memory" , &(mem0->powerModelPort), "pd1");
-  cout << "power connector for mem0 done " << std::endl;
+  spdlog::info("power connector for mem0 pd1 done");
   // MEM1
   pd1_logger->power_connector ("mem1" , "memory" , &(mem1->powerModelPort), "pd1");
-  cout << "power connector for mem1 done " << std::endl;
+  spdlog::info("power connector for mem1 pd1 done");
 
 }
 

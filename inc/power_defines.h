@@ -2,28 +2,49 @@
 #define POWER_DEFINES_H
 
 // Power annotation defines
-// cpu0
-#define CPU0_ENABLED                             2e-5         
-#define CPU0_STALL                               0.1e-5       
-#define CPU0_READ                                0.5e-11       
-#define CPU0_WRITE                               1e-11         
 
-// cpu1
-#define CPU1_ENABLED                             3e-5         
-#define CPU1_STALL                               0.2e-5       
-#define CPU1_READ                                1e-11         
-#define CPU1_WRITE                               1.5e-11       
+// Power Domain 1
+// cpu0      
+#define PD1_CPU0_LOAD                                1.5e-12       
+#define PD1_CPU0_STORE                               2e-12      
+#define PD1_CPU0_STATE1                              1e-6         
+#define PD1_CPU0_STATE2                              0.5e-6        
 
 // memory0 
-#define MEM0_READ                                8e-10      
-#define MEM0_WRITE                               20e-10     
-#define MEM0_ON                                  40e-3     
-#define MEM0_OFF                                 1e-3      
+#define PD1_MEM0_READ                                10e-12      
+#define PD1_MEM0_WRITE                               11e-12     
+#define PD1_MEM0_STATE1                              14e-6     
+#define PD1_MEM0_STATE2                              8.5e-6      
 
 // memory1 
-#define MEM1_READ                                15e-10     
-#define MEM1_WRITE                               40e-10     
-#define MEM1_ON                                  50e-3     
-#define MEM1_OFF                                 5e-3      
+#define PD1_MEM1_READ                                50e-12     
+#define PD1_MEM1_WRITE                               60e-12     
+#define PD1_MEM1_STATE1                              60e-6     
+#define PD1_MEM1_STATE2                              30e-6  
+
+// Power Domain 2
+// cpu0      
+#define PD2_CPU0_LOAD                                1.2e-12       
+#define PD2_CPU0_STORE                               1.6e-12      
+#define PD2_CPU0_STATE1                              0.8e-6         
+#define PD2_CPU0_STATE2                              0.4e-6    
+
+// cpu1 
+#define PD2_CPU1_LOAD                                1e-12         
+#define PD2_CPU1_STORE                               1.1e-12
+#define PD2_CPU1_STATE1                              1e-6         
+#define PD2_CPU1_STATE2                              0.6e-6             
+
+// memory0 
+#define PD2_MEM0_READ                                8e-12      
+#define PD2_MEM0_WRITE                               9e-12     
+#define PD2_MEM0_STATE1                              11e-6     
+#define PD2_MEM0_STATE2                              6.5e-6      
+
+// memory1 
+#define PD2_MEM1_READ                                40e-12     
+#define PD2_MEM1_WRITE                               48e-12     
+#define PD2_MEM1_STATE1                              48e-6     
+#define PD2_MEM1_STATE2                              24e-6      
 
 #endif

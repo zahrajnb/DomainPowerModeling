@@ -28,19 +28,19 @@ public:
 
   PowerModelEventOutPort powerModelPort{"powerModelPort"};
 
-  Memory(sc_module_name name, double read_energy_consumption, double write_energy_consumption, double on_state_current, double off_state_current, uint32_t size = 1000);
+  Memory(sc_module_name name, double read_energy_consumption, double write_energy_consumption, double state1_current, double state2_current, uint32_t size = 1000);
   ~Memory();
   sc_out<bool> irq_out;
 
   double read_energy_consumption;
   double write_energy_consumption;
-  double on_state_current;
-  double off_state_current;
+  double state1_current;
+  double state2_current;
 
   int m_btransportReadEventId = {-1}; // Dummy power event
   int m_btransportWriteEventId = {-1}; // Dummy power event
-  int m_onStateId = {-1}; // Leakage power
-  int m_offStateId = {-1}; // Leakage power
+  int m_State1Id = {-1}; // Leakage power
+  int m_State2Id = {-1}; // Leakage power
 
   virtual void end_of_elaboration() override;
 

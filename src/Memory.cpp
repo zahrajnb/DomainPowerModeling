@@ -8,8 +8,10 @@
 
 SC_HAS_PROCESS(Memory);
 
-Memory::Memory(sc_module_name name, double read_energy_consumption, double write_energy_consumption, double on_state_current, double off_state_current, uint32_t size)
-    : sc_module(name), read_energy_consumption(read_energy_consumption), write_energy_consumption(write_energy_consumption), on_state_current(on_state_current), off_state_current(off_state_current),
+Memory::Memory(sc_module_name name, double read_energy_consumption, double write_energy_consumption, 
+double state1_current, double state2_current, uint32_t size)
+    : sc_module(name), read_energy_consumption(read_energy_consumption), write_energy_consumption(write_energy_consumption), 
+      state1_current(state1_current), state2_current(state2_current),
       target_socket((string(name) + string("_target_socket")).c_str()),
       irq_out((string(name) + string("_irq_out")).c_str()) {
   mem_size = size;
@@ -62,13 +64,13 @@ void Memory::b_transport(tlm::tlm_generic_payload &trans, sc_time &delay){
       spdlog::info("{} firing IRQ", this->name());
     }else if (adr > 100 && adr<= 200) {
       //TODO: change to state1
-      spdlog::info("{} on", this->name());
-      this->powerModelPort->reportState(m_onStateId);
+      spdlog::info("{} state 1", this->name());
+      this->powerModelPort->reportState(m_State1Id);
     
     } else if (adr > 200 && adr<= 300) {
       //TODO: change to state2
-      spdlog::info("{} off", this->name());
-      this->powerModelPort->reportState(m_offStateId);
+      spdlog::info("{} state 2", this->name());
+      this->powerModelPort->reportState(m_State2Id);
 
     }
     trans.set_response_status(tlm::TLM_OK_RESPONSE);
@@ -96,10 +98,10 @@ void Memory::end_of_elaboration(){
   this->m_btransportWriteEventId = this->powerModelPort->registerEvent(
           this->name(), 
           std::unique_ptr<ConstantEnergyEvent>(new ConstantEnergyEvent("m_btransportWriteEventId", write_energy_consumption)));
-  this->m_onStateId = this->powerModelPort->registerState(
+  this->m_State1Id = this->powerModelPort->registerState(
           this->name(), 
-          std::unique_ptr<ConstantCurrentState>(new ConstantCurrentState("m_onStateId", on_state_current)));
-  this->m_offStateId = this->powerModelPort->registerState(
+          std::unique_ptr<ConstantCurrentState>(new ConstantCurrentState("m_State1Id", state1_current)));
+  this->m_State2Id = this->powerModelPort->registerState(
           this->name(), 
-          std::unique_ptr<ConstantCurrentState>(new ConstantCurrentState("m_offStateId", off_state_current)));
+          std::unique_ptr<ConstantCurrentState>(new ConstantCurrentState("m_State2Id", state2_current)));
 }

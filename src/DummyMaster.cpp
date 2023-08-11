@@ -8,16 +8,16 @@
 
 SC_HAS_PROCESS(DummyMaster);
 
-DummyMaster::DummyMaster(sc_module_name name, double enabled_power, 
-  double stall_power, double read_power, double write_power, uint8_t num_irqs)
+DummyMaster::DummyMaster(sc_module_name name, double state1_current, 
+  double state2_current, double load_energy, double store_energy, uint8_t num_irqs)
     : sc_module(name),
       initiator_socket((string(name) + string("_initiator_socket")).c_str()),
       irqs_in((string(name) + string("_irqs_in")).c_str(), num_irqs){
 
-  this->enabled_power = enabled_power;
-  this->stall_power = stall_power;
-  this->read_power = read_power;
-  this->write_power = write_power;
+  this->state1_current = state1_current;
+  this->state2_current = state2_current;
+  this->load_energy = load_energy;
+  this->store_energy = store_energy;
 
   // tlm transaction payload initial setup for single word transactions
   trans = new tlm::tlm_generic_payload;
@@ -65,15 +65,12 @@ void DummyMaster::write_thread() {
         trans->set_command(tlm::TLM_WRITE_COMMAND);
     trans->set_response_status(tlm::TLM_INCOMPLETE_RESPONSE);
     trans_delay = SC_ZERO_TIME;
-    // TODO: Write event
-    this->powerModelPort->reportEvent(this->c_writeEventId);
+    this->powerModelPort->reportEvent(this->c_storeEventId);
     initiator_socket->b_transport(*trans, trans_delay);
     wait(trans_delay);
     if (trans->get_response_status() != tlm::TLM_OK_RESPONSE) {
       spdlog::warn("{} write_thread() something went wrong", this->name());
-      /* cout << "DummyMaster::write_thread() something went wrong\n"; */
     } else {
-      /* cout << "DummyMaster::write_thread() successful\n"; */
       spdlog::info("{} write_thread() successful", this->name());
     }
   }
@@ -87,29 +84,24 @@ void DummyMaster::read_thread() {
         trans->set_command(tlm::TLM_READ_COMMAND);
     trans->set_response_status(tlm::TLM_INCOMPLETE_RESPONSE);
     trans_delay = SC_ZERO_TIME;
-    //TODO: Read event
-    this->powerModelPort->reportEvent(this->c_readEventId);
+    this->powerModelPort->reportEvent(this->c_loadEventId);
     initiator_socket->b_transport(*trans, trans_delay);
     wait(trans_delay);
     if (trans->get_response_status() != tlm::TLM_OK_RESPONSE) {
       spdlog::warn("{} read_thread() something went wrong", this->name());
-      /* cout << "DummyMaster::read_thread() something went wrong\n"; */
     } else {
       spdlog::info("{} read_thread(), read: {:#x}", this->name(), word);
-      /* cout << "DummyMaster::read_thread, read 0x" << hex << word << "\n"; */
     }
   }
 }
 
 void DummyMaster::irq(){
   spdlog::info("{} received irq", this->name());
-  /* cout << "DummyMaster, received irq\n"; */
-  // TODO: Toggle module state here
   if (enabled){
-    this->powerModelPort->reportState(c_enabledStateId);
+    this->powerModelPort->reportState(c_State1Id);
     enabled = false;
   } else {
-    this->powerModelPort->reportState(c_stallStateId);
+    this->powerModelPort->reportState(c_State2Id);
     enabled = true;
   }
 }
@@ -117,18 +109,18 @@ void DummyMaster::irq(){
 // Power registration
 void DummyMaster::end_of_elaboration(){
 
-  this->c_enabledStateId = this->powerModelPort->registerState(
+  this->c_State1Id = this->powerModelPort->registerState(
     this->name(),
-    std::unique_ptr<ConstantCurrentState>(new ConstantCurrentState("enabledState", this->enabled_power)));
-  this->c_stallStateId = this->powerModelPort->registerState(
+    std::unique_ptr<ConstantCurrentState>(new ConstantCurrentState("State1", this->state1_current)));
+  this->c_State2Id = this->powerModelPort->registerState(
     this->name(),
-    std::unique_ptr<ConstantCurrentState>(new ConstantCurrentState("stallState", this->stall_power)));
-  this->c_readEventId = this->powerModelPort->registerEvent(
+    std::unique_ptr<ConstantCurrentState>(new ConstantCurrentState("State2", this->state2_current)));
+  this->c_loadEventId = this->powerModelPort->registerEvent(
     this->name(),
-    std::unique_ptr<ConstantEnergyEvent>(new ConstantEnergyEvent("readEvent", this->read_power)));
-  this->c_writeEventId = this->powerModelPort->registerEvent(
+    std::unique_ptr<ConstantEnergyEvent>(new ConstantEnergyEvent("loadEvent", this->load_energy)));
+  this->c_storeEventId = this->powerModelPort->registerEvent(
     this->name(),
-    std::unique_ptr<ConstantEnergyEvent>(new ConstantEnergyEvent("writeEvent", this->write_power)));
+    std::unique_ptr<ConstantEnergyEvent>(new ConstantEnergyEvent("storeEvent", this->store_energy)));
 }
 
 DummyMaster::~DummyMaster() { delete trans; }

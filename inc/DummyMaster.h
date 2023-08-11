@@ -27,13 +27,13 @@ public:
 
   PowerModelEventOutPort powerModelPort{"powerModelPort"};
 
-  double enabled_power;
-  double stall_power;
-  double read_power;
-  double write_power;
+  double state1_current;
+  double state2_current;
+  double load_energy;
+  double store_energy;
 
-  DummyMaster(sc_module_name name, double enabled_power, double stall_power, 
-  double read_power,double write_power, uint8_t num_irqs = 1);
+  DummyMaster(sc_module_name name, double state1_current, double state2_current, 
+  double load_energy,double store_energy, uint8_t num_irqs = 1);
 
   ~DummyMaster();
 
@@ -45,10 +45,10 @@ public:
   
   bool enabled{};
 
-  int c_enabledStateId{-1};
-  int c_stallStateId{-1};
-  int c_readEventId{-1};
-  int c_writeEventId{-1};
+  int c_State1Id{-1};
+  int c_State2Id{-1};
+  int c_loadEventId{-1};
+  int c_storeEventId{-1};
 
   virtual void end_of_elaboration() override;
 
