@@ -48,7 +48,6 @@ To install and set up the DomainPowerModeling project, follow the steps below:
          mkdir build
          cd build
          cmake ./ -DINSTALL_DEPENDENCIES=ON -DINSTALL_SYSTEMC=ON
-         rm -rf *
       
       
 
