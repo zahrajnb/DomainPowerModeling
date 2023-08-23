@@ -116,8 +116,8 @@ Once you have collected power consumption data using the Power Domain Logger, yo
 
 - **Paper 1**: "Fused: Closed-loop Performance and Energy Simulation of Embedded Systems" by [Sivert T. Sliper, William Wang, Nikos Nikoleris, Alex S. Weddell, and Geoff V. Merrett](https://eprints.soton.ac.uk/439059/1/fused_crp_final_PID6327977.pdf)
   - Fused is an open-source full-system simulator for energy-driven computers that accurately models the interplay between power supply, power consumption, and energy-driven execution, enabling hardware-software codesign and design space exploration.
-- **Paper 2**: Title of Paper 2 ([Link](http://example.com/paper2))
-  - Brief
+- **Paper 2**: "Hifh-Level Power Modeling for IoT" by [Ingvild Overholt]
+  - Previous master's thesis project done in colaboration with Nordic Semiconductor
 
 - **Git Repository 1**: Fused ([Link](https://github.com/UoS-EEC/fused.git))
   - The repository provides the necessary code and resources to use and contribute to the Fused simulator.
