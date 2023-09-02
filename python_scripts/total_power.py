@@ -1,5 +1,7 @@
-import matplotlib.pyplot as plt
-import numpy as np
+import matplotlib.pyplot as plt 
+import matplotlib.rcsetup
+import matplotlib.colors as mcolors
+import numpy as np 
 import sys
 import os
 import glob
@@ -19,7 +21,7 @@ if len(sys.argv) >= 3 and sys.argv[2] != 'None':
     rows_to_plot = int(sys.argv[2])
 
 # Search through all files in the provided folder
-for file in glob.iglob(os.path.join('reports', 'pd1', '**', '*.csv'), recursive=True):
+for file in glob.iglob(os.path.join('reports' , 'pd2', 'cpu', '**', '*.csv'), recursive=True):
     fname = os.fsdecode(file)
     # Add all event power
     try:
@@ -44,20 +46,38 @@ for file in glob.iglob(os.path.join('reports', 'pd1', '**', '*.csv'), recursive=
     except Exception as e:
         print(e)
 
-time = data[:, -1]
+time = data[:,-1]
+print(time)
 total = total_event_power + total_state_power
+print(total)
 
-# ... (rest of your code)
+time = np.expand_dims(time, 1)
+total = np.expand_dims(total, 1)  # Add a new axis to make it a 2D array
+total_with_time = np.concatenate((total, time), axis=1)
 
-plt.rcParams.update({'font.size': 12, 'font.family': 'monospace'})
-plt.rcParams.update({'xtick.labelsize': 10})
-plt.rcParams.update({'ytick.labelsize': 10})
-plt.rcParams.update({'legend.fontsize': 12})
+np.savetxt(sys.argv[1] + "\\total_event_power.csv", total_event_power, delimiter=',')
+np.savetxt(sys.argv[1] + "\\total_state_power.csv", total_state_power, delimiter=',')
+np.savetxt(sys.argv[1] + "\\total_power.csv", total, delimiter=',')
+
+
+
+matplotlib.rcParams.update({'font.size': 15, 'font.family':'monospace'})
+matplotlib.rcParams.update({'xtick.labelsize': 10})
+matplotlib.rcParams.update({'ytick.labelsize': 10})
+matplotlib.rcParams.update({'legend.fontsize': 15})
 
 fig1, ax1 = plt.subplots()
-fig1.set_size_inches(12, 6)  # Adjust the figure size as needed
+fig1.set_size_inches(12,7)  
 fig1.set_dpi(200)
-plt.xticks(rotation=40, ha='right')  # Rotate and align x-axis labels
+# plt.xticks(rotation=40)
+num_labels = len(ax1.get_xticklabels())
+angle = 40 if num_labels < 10 else 15  # Choose an angle based on the number of labels
+
+# Make the figure size smaller to give more space for x-axis labels
+# fig1.set_size_inches(8, 7)  # Adjust the width and height as needed
+
+plt.xticks(rotation=angle)
+
 ax1.plot(time, total_event_power, linewidth=1.0)
 ax1.set_title("Power consumption")
 ax1.legend(("Event power"))
@@ -66,15 +86,22 @@ ax1.set_ylabel("Power [W]")
 ax1.autoscale()
 plt.grid(visible=True, axis='both', which='both')
 plt.style.use('seaborn-v0_8-dark-palette')
-fig1.tight_layout()  # Adjust layout
 fig1.savefig(sys.argv[1] + "_total_event_power.png")
-plt.show()
+fig1.show()
 
 fig2, ax2 = plt.subplots()
-fig2.set_size_inches(12, 6)  # Adjust the figure size as needed
+fig2.set_size_inches(12,7)  
 fig2.set_dpi(200)
-plt.xticks(rotation=40, ha='right')  # Rotate and align x-axis labels
-ax2.plot(time, total_state_power, linewidth=1.0)
+# plt.xticks(rotation=40)
+num_labels = len(ax1.get_xticklabels())
+angle = 40 if num_labels < 10 else 15  # Choose an angle based on the number of labels
+
+# Make the figure size smaller to give more space for x-axis labels
+
+
+plt.xticks(rotation=angle)
+
+ax2.plot(time, total_state_power,  linewidth=1.0)
 ax2.set_title("Power consumption")
 ax2.legend(("State power"))
 ax2.set_xlabel("Time [s]")
@@ -82,8 +109,43 @@ ax2.set_ylabel("Power [W]")
 ax2.autoscale()
 plt.grid(visible=True, axis='both', which='both')
 plt.style.use('seaborn-v0_8-dark-palette')
-fig2.tight_layout()  # Adjust layout
 fig2.savefig(sys.argv[1] + "_total_state_power.png")
-plt.show()
+fig2.show()
 
-# ... (similar adjustments for other figures)
+fig3, ax3 = plt.subplots()
+fig3.set_size_inches(12,7)  
+fig3.set_dpi(200)
+# plt.xticks(rotation=40)
+num_labels = len(ax1.get_xticklabels())
+angle = 40 if num_labels < 10 else 15  # Choose an angle based on the number of labels
+
+# Make the figure size smaller to give more space for x-axis labels
+# fig1.set_size_inches(8, 10)  # Adjust the width and height as needed
+
+plt.xticks(rotation=angle)
+
+ax3.plot(time, total, linewidth=1.0)
+
+ax3.set_title("Power consumption")
+ax3.legend(("Total ESL", "Total RTL", "Min", "Max", "Average"))
+ax3.set_xlabel("Time [s]")
+ax3.set_ylabel("Power [W]")
+fname_no_ending = fname.split('.')[0]
+ax3.autoscale()
+plt.grid(visible=True, axis='both', which='both')
+plt.style.use('seaborn-v0_8-dark-palette')
+fig3.savefig(sys.argv[1] + "_total_power.png")
+fig3.show()
+
+# ...
+if time.shape[0] == total_event_power.shape[0] and time.shape[0] == total_state_power.shape[0]:
+    ax1.plot(time, total_event_power, linewidth=1.0)
+    ax2.plot(time, total_state_power, linewidth=1.0)
+    ax3.plot(time, total, linewidth=1.0)
+    # Rest of the plotting code...
+else:
+    print("Data shapes do not match.")
+
+plt.close()
+
+

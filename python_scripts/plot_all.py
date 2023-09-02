@@ -17,9 +17,10 @@ matplotlib.rcParams.update({'legend.fontsize': 10})
 
 # Function to plot states for a certain number of rows
 def plot_states(fname, rows_to_plot):
-    print("Inside plot_states function. fname:", fname)
     header = []
     data = []
+    state_names = {}  # Dictionary to map IDs to state names
+    
     # The static power report has a weird header, need to extract state names from it
     with open(fname) as f:
         for line in f:
@@ -33,29 +34,38 @@ def plot_states(fname, rows_to_plot):
 
     header = np.array(header)
     data = np.array(data)
-    state_id = []
     time = data[:,1]
     fig, ax = plt.subplots()
     fig.set_size_inches(10,7)  
     fig.set_dpi(200)
 
-    for entry in header[1:,2]:
-        state_id.append(float(entry))
+    for entry in header[1:]:
+        state_id = int(entry[2])
+        state_name = entry[1]
+        state_names[state_id] = state_name
+
     ax.plot(time*1E-6, data[:,0], linewidth=1.0)
 
     plt.title("States")
-    #plt.xticks(rotation=40)
     plt.xlabel("Time")
     plt.ylabel("State")
-    #plt.xticks(rotation=40)
-    plt.yticks(state_id, header[1:,1], minor=True)
+    plt.yticks([])  # Remove existing y-axis ticks
     plt.autoscale()
     plt.grid(visible=True, axis='both', which='both')
     fname_no_ending = fname.split('.')[0]
     plt.style.use('seaborn-v0_8-dark-palette')
     plt.savefig(fname_no_ending + ".png")
-    ###plt.show()
+    
+    # Manually set y-axis labels
+    ax.set_yticks(list(state_names.keys()))
+    ax.set_yticklabels(list(state_names.values()))
+    
+    plt.tight_layout()
+    plt.savefig(fname_no_ending + "_with_labels.png")
     plt.close()
+
+
+
 
 def plot_static_power(fname, rows_to_plot):
     with open(fname) as f:
@@ -119,6 +129,7 @@ def plot_dynamic_power(fname, rows_to_plot):
     plt.close()
 
 def plot_events(fname, rows_to_plot):
+    print("in event plot")
     with open(fname) as f:
         event_types = np.loadtxt(f, delimiter=',', dtype='str', max_rows=1, ndmin=1)
         data = np.loadtxt(f, delimiter=',', dtype='int', skiprows=1, ndmin=1, max_rows=rows_to_plot)
@@ -133,44 +144,44 @@ def plot_events(fname, rows_to_plot):
         for index in range(event_types.size):
             event_types[index] = (event_types[index].split('.')[-1]).split(' ', 1)[-1]
 
-    # Bar plot of event sum
-    for index in range(event_types.size -1):
-        event_count.append(sum(data[...,index]))
-    
+    print(event_types)
+    # Calculate the total occurrences of each event type
+    for index in range(event_types.size - 1):
+        event_count.append(sum(data[..., index]))
+
+    total_events = sum(event_count)
+
+    # Calculate the percentage of each event type
+    event_percentages = [count / total_events * 100 for count in event_count]
+    print("Create a pie chart")
+    # Create a pie chart
     plt.style.use('seaborn-v0_8-dark-palette')
     fig1, ax1 = plt.subplots()
-    fig1.set_size_inches(10,7)  
+    fig1.set_size_inches(10, 7)
     fig1.set_dpi(200)
-    ax1.bar(np.array(range(len(event_count))), event_count)
-    ax1.set_yticklabels([])
-    ax1.set_xticklabels(event_types[0:event_types.size-1])
-    plt.title("Number of events of each type")
-    #plt.xticks(rotation=40)
-    plt.yticks(minor=True)
-    plt.xlabel("Events")
-    plt.ylabel("Number of occurences")
+    ax1.pie(event_percentages, labels=event_types[0:event_types.size-1], autopct='%1.1f%%', startangle=140)
+    ax1.axis('equal')  # Equal aspect ratio ensures the pie chart is circular.
+    plt.tight_layout()
     fname_no_ending = fname.split('.')[0]
-    plt.autoscale()
-    plt.savefig(fname_no_ending + "_bar.png")
-    #plt.show()
+    plt.savefig(fname_no_ending + "_pie.png")
     plt.close()
 
     fig2, ax2 = plt.subplots()
-    fig2.set_size_inches(10,5)
+    fig2.set_size_inches(10, 5)
     fig2.set_dpi(200)
-    for index in range(event_types.size-1):
-        ax2.plot(time*1E-6, data[...,index], linewidth=1.0)
+    for index in range(event_types.size - 1):
+        ax2.plot(time * 1E-6, data[..., index], linewidth=1.0)
     plt.title("ESL event counts")
     ax2.set_yticklabels([])
-    plt.xlabel("Events")
+    plt.xlabel("Time")
     plt.ylabel("Number of events")
     plt.grid(visible=True, axis='both', which='both')
-    plt.legend(event_types[0:event_types.size-1])
+    plt.legend(event_types[0:event_types.size - 1])
     plt.grid(visible=True, axis='both', which='both')
     plt.autoscale()
     plt.savefig(fname_no_ending + ".png")
-    #plt.show()
     plt.close()
+
 
 print("Command-line arguments:", sys.argv)
 

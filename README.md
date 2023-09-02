@@ -96,13 +96,15 @@ Once you have collected power consumption data using the Power Domain Logger, yo
    pip install pandas
    pip install matplotlib
 
-2. Run the code total_power.py on the folder of choice to get the event power, static power, and total power plots over time for the CSVs within the folder (you also need to change the folder location inside the python code):
+2. Run the code total_power.py on the folder of choice to get the event power, static power, and total power plots over time for the CSVs within the folder path (you also need to change the folder location inside the python code):
    ```shell
-   python3 python_scripts/total_power.py 'reports'
+   python3 python_scripts/total_power.py number_of_rows
 
 3. Run domain_bar_chart.py and domain_pie_chart.py on the CSV files resulted from the run of the previous script to get the pie chart and stacked bar charts showing the power consumption contribution in total and over time (file names should be adapted based on need inside the code).
 
-4. Run the plot_all.py on every subdirectories for each component to the statelog, eventlog, event pie chart, and event power plots.
+4. Run the plot_all.py on every subdirectories for each component to the statelog, eventlog, event pie chart, and event power plots. You need to pass the folder path and number of rows from the CSV files.
+   ```shell
+   python3 plot_all.py path_to_folder number_of_rows
 
 5. Run plot_state.py to get the state pie charts.
 
@@ -116,7 +118,7 @@ Once you have collected power consumption data using the Power Domain Logger, yo
 
 - **Paper 1**: "Fused: Closed-loop Performance and Energy Simulation of Embedded Systems" by [Sivert T. Sliper, William Wang, Nikos Nikoleris, Alex S. Weddell, and Geoff V. Merrett](https://eprints.soton.ac.uk/439059/1/fused_crp_final_PID6327977.pdf)
   - Fused is an open-source full-system simulator for energy-driven computers that accurately models the interplay between power supply, power consumption, and energy-driven execution, enabling hardware-software codesign and design space exploration.
-- **Paper 2**: "Hifh-Level Power Modeling for IoT" by Ingvild Overholt
+- **Paper 2**: "High-Level Power Modeling for IoT" by Ingvild Overholt
   - Previous master's thesis project done in colaboration with Nordic Semiconductor
 
 - **Git Repository 1**: Fused ([Link](https://github.com/UoS-EEC/fused.git))
